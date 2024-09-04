@@ -100,65 +100,6 @@ nav ul.menu li.submenu .dropdown li a {
     height: auto;
 }
 
-.login-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    width: 100%;
-    text-align: center;
-}
-
-.login-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-container label {
-    margin: 10px 0 5px;
-    font-size: 14px;
-}
-
-.login-container input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    width: 100%;
-}
-
-.login-container button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background: #28a745;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    width: 100%;
-}
-
-.login-container button:hover {
-    background: #218838;
-}
-
-.login-container p {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.login-container a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.login-container a:hover {
-    text-decoration: underline;
-}
-
 footer {
     text-align: center;
     padding: 20px;

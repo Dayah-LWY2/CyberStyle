@@ -113,7 +113,6 @@ nav ul.menu li.submenu .dropdown li a {
 .login-container form {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .login-container label {
@@ -138,7 +137,6 @@ nav ul.menu li.submenu .dropdown li a {
     color: #fff;
     cursor: pointer;
     font-size: 14px;
-    width: 100%;
 }
 
 .login-container button:hover {
