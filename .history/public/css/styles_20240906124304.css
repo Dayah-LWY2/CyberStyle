@@ -144,7 +144,7 @@ nav ul.menu li.submenu .dropdown li a {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background: #383838;
+    background: #28a745;
     color: #fff;
     cursor: pointer;
     font-size: 14px;
@@ -152,7 +152,7 @@ nav ul.menu li.submenu .dropdown li a {
 }
 
 .login-container button:hover {
-    background: #0D0D0D;
+    background: #218838;
 }
 
 .login-container p {
@@ -169,6 +169,7 @@ nav ul.menu li.submenu .dropdown li a {
     text-decoration: underline;
 }
 
+/* Signup form container */
 .signup-container {
     background: #fff;
     padding: 20px;
@@ -178,7 +179,7 @@ nav ul.menu li.submenu .dropdown li a {
     width: 100%;
     text-align: center;
     margin: 50px auto;
-}
+    }
 
 .signup-container h2 {
     margin-bottom: 20px;
@@ -212,7 +213,7 @@ nav ul.menu li.submenu .dropdown li a {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background: #383838;
+    background: #28a745;
     color: #fff;
     cursor: pointer;
     font-size: 14px;
@@ -220,7 +221,7 @@ nav ul.menu li.submenu .dropdown li a {
 }
 
 .signup-container button:hover {
-    background: #0D0D0D;
+    background: #218838;
 }
 
 .signup-container p {
@@ -239,7 +240,6 @@ nav ul.menu li.submenu .dropdown li a {
 
 /* Gender select warning */
 .gender-message {
-    color: red;
     font-size: 12px;
     margin-bottom: 10px;
     visibility: hidden;

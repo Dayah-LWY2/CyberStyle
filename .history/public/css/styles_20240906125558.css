@@ -144,7 +144,7 @@ nav ul.menu li.submenu .dropdown li a {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background: #383838;
+    background: #28a745;
     color: #fff;
     cursor: pointer;
     font-size: 14px;
@@ -152,7 +152,7 @@ nav ul.menu li.submenu .dropdown li a {
 }
 
 .login-container button:hover {
-    background: #0D0D0D;
+    background: #218838;
 }
 
 .login-container p {
@@ -212,7 +212,7 @@ nav ul.menu li.submenu .dropdown li a {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background: #383838;
+    background: #1d1717;
     color: #fff;
     cursor: pointer;
     font-size: 14px;
@@ -220,7 +220,7 @@ nav ul.menu li.submenu .dropdown li a {
 }
 
 .signup-container button:hover {
-    background: #0D0D0D;
+    background: #808080;
 }
 
 .signup-container p {

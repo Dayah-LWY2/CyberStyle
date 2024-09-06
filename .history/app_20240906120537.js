@@ -51,7 +51,7 @@ app.post('/signup', (req, res) => {
     }
 
     // Placeholder for database logic
-    console.log(`New user registered: ${username}, ${email}`);
+    console.log(New user registered: ${username}, ${email});
 
     // Redirect to a success page or login
     res.redirect('/login');
