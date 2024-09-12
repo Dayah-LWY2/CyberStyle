@@ -1,0 +1,27 @@
+<h1>Your Cart</h1>
+    <ul>
+        <% if (cart.length === 0) { %>
+            <li>Your cart is empty</li>
+        <% } else { %>
+            <% cart.forEach(item => { %>
+                <li>
+                    <div class="cart-item">
+                        <img src="<%= item.images[0] %>" alt="<%= item.name %>">
+                        <div class="cart-item-info">
+                            <h2><%= item.name %></h2>
+                            <p><strong>Product Code:</strong> <%= item.code %></p>
+                            <p><strong>Price:</strong> RM <%= item.price.toFixed(2) %></p>
+                            <p><strong>Size:</strong> <%= item.size %></p>
+                            <p><strong>Quantity:</strong> <%= item.quantity %></p>
+                        </div>
+                        <form action="/remove-from-cart" method="POST">
+                            <input type="hidden" name="productCode" value="<%= item.code %>">
+                            <input type="hidden" name="size" value="<%= item.size %>">
+                            <button type="submit">Remove from Cart</button>
+                        </form>
+                    </div>
+                </li>
+            <% }) %>
+        <% } %>
+    </ul>
+    <a href="/">Continue Shopping</a>

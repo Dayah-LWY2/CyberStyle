@@ -1,0 +1,15 @@
+<%- include('layout') %>
+<h1>Men's Products</h1> <!-- Change the title accordingly for each page -->
+<div class="product-list">
+    <% products.forEach(function(product) { %>
+        <% if (product.category === 'men') { %> <!-- Adjust category condition -->
+            <div class="product-item">
+                <a href="/product/<%= product.code %>">
+                    <img src="<%= product.images[0] %>" alt="<%= product.name %>">
+                    <h2><%= product.name %></h2>
+                    <p>RM <%= product.price.toFixed(2) %></p>
+                </a>
+            </div>
+        <% } %>
+    <% }); %>
+</div>

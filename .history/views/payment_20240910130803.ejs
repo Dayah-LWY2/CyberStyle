@@ -1,0 +1,46 @@
+<div class="payment-container">
+    <h1>Payment Details</h1>
+    
+    <h2>Shopping Summary</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cart.forEach(item => { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.quantity %></td>
+            <td>$<%= item.product.price %></td>
+            <td>$<%= item.quantity * item.price %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total</td>
+          <td>$<%= cart.reduce((total, item) => total + (item.quantity * item.product.price), 0).toFixed(2) %></td>
+        </tr>
+      </tfoot>
+    </table>
+    
+    <h2>Payment Options</h2>
+    <form action="/process-payment" method="post">
+      <label>
+        <input type="radio" name="paymentMethod" value="online-banking" required>
+        Online Banking
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="paymentMethod" value="cod" required>
+        Cash on Delivery (COD)
+      </label>
+      <br>
+      <button type="submit" class="btn">Complete Purchase</button>
+    </form>
+</div>

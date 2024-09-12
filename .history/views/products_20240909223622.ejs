@@ -1,0 +1,13 @@
+<%- include('layout') %>
+<h1>All Products</h1>
+<div class="product-list">
+    <% products.forEach(function(product) { %>
+        <div class="product-item">
+            <a href="/product/<%= product.code %>">
+                <img src="<%= product.images[0] %>" alt="<%= product.name %>">
+                <h2><%= product.name %></h2>
+                <p>RM <%= product.price.toFixed(2) %></p>
+            </a>
+        </div>
+    <%});%>
+</div>
