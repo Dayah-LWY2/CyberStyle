@@ -1,0 +1,42 @@
+<section class="hero">
+  <h1>Discover the Future of Fashion</h1>
+  <h2><a href="/products" class="explore-btn">Explore Now</a></h2>
+</section>
+
+<section class="categories">
+  <div class="category women">
+      <img src="/images/women.jpg" alt="Women Main Image">
+      <h1><a href="/women" class="category-btn">Shop Women</a></h1>
+  </div>
+  <div class="category men">
+      <img src="/images/men.jpg" alt="Men Main Image">
+      <h1><a href="/men" class="category-btn">Shop Men</a></h1>
+  </div>
+  <div class="category kids">
+      <img src="/images/kids.jpg" alt="Kids Main Image">
+      <h1><a href="/kids" class="category-btn">Shop Kids</a></h1>
+  </div>
+</section>
+
+<div class="carousel-container">
+  <div class="carousel-title">
+      <h1>New Collection Slideshow</h1>
+  </div>
+  <div class="carousel">
+      <div class="carousel-inner">
+          <% specificProducts.forEach(function(product, index) { %>
+              <div class="carousel-item<%= index === 0 ? ' active' : '' %>">
+                <% var imagePath = product.images.length > 0 ? product.images[0] : '/images/placeholder.jpg'; %>
+                <img src="<%= imagePath %>" alt="<%= product.name %>" onerror="this.onerror=null;this.src='/images/placeholder.jpg';">
+                  <div class="carousel-caption">
+                      <label><%= product.name %></label>
+                      <p>RM<%= product.price %></p>
+                  </div>
+              </div>
+          <% }); %>
+      </div>
+  </div>
+</div>
+
+<script src="/js/script.js"></script>
+

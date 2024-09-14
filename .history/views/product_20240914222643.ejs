@@ -1,0 +1,37 @@
+<div class="product-detail-container"></div>
+    <div class="product-image">
+        <img id="main-product-image" src="<%= product.image %>" alt="<%= product.name %>">
+        <div class="product-thumbnails">
+            <% product.thumbnails.forEach(function(thumbnail) { %>
+                <img src="<%= thumbnail %>" alt="Thumbnail">
+            <% }); %>
+        </div>
+    </div>
+    <div class="product-info">
+        <h1><%= product.name %></h1>
+        <p class="product-description"><%= product.description %></p>
+        <p><strong>Product Code:</strong> <%= product.code %></p>
+        <p><strong>Price:</strong> RM <%= product.price.toFixed(2) %></p>
+        <form id="product-form" action="" method="POST">
+            <div class="product-sizes">
+                <strong>Size:</strong>
+                <select name="size" required>
+                    <% product.sizes.forEach(function(size) { %>
+                        <option value="<%= size %>"><%= size %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="product-quantity">
+                <strong>Quantity:</strong>
+                <button type="button" id="decreaseQty">-</button>
+                <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+                <button type="button" id="increaseQty">+</button>
+            </div>
+            <input type="hidden" name="productCode" value="<%= product.code %>">
+            <button type="submit" id="add-to-cart-btn" class="add-to-cart" data-action="/add-to-cart">Add to Cart</button>
+            <button type="submit" id="buy-now-btn" class="buy-now" data-action="/buy-now">Buy Now</button>
+        </form>
+    </div>
+</div>
+
+<script src="/js/script.js"></script>
