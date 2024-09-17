@@ -116,9 +116,7 @@ nav ul.menu li.submenu .dropdown li a {
 
 .category {
     margin: 10px;
-    flex: 1 1 200px;
-    text-align: center;
-    align-items: center;
+    flex: 1 1 200px; /* Adjust size based on available space */
 }
 
 .category img {
@@ -130,6 +128,7 @@ nav ul.menu li.submenu .dropdown li a {
     display: flex;
     flex-direction: column; /* Stack title and carousel vertically */
     align-items: center; /* Center horizontally */
+    text-align: center;
     overflow: hidden; /* Hide overflow if needed */
     padding: 20px; /* Increase padding for a larger layout */
 }
@@ -665,7 +664,7 @@ footer {
 
 /* Container for the FAQ section */
 .faq {
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
     font-family: Arial, sans-serif;

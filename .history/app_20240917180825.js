@@ -109,34 +109,16 @@ app.get('/product/:code', (req, res) => {
 
 app.get('/cart', (req, res) => res.render('cart', { title: 'Cart', cart: req.session.cart }));
 
-app.get('/payment', async (req, res) => {
-
-    const username = req.session.username;  // Replace with how you manage sessions
-    const users = await readUsersFromFile();
-
-    const user = users.find(u => u.username === username);
-    
-    // Pre-fill the address if available
-    const address = user ? user.address || '' : '';
-
+app.get('/payment', (req, res) => {
     const cart = req.session.tempCart || req.session.cart;
     if (!cart || cart.length === 0) return res.status(404).send('No items found for payment');
-    res.render('payment', { title: 'Payment Details', cart, address });
+    res.render('payment', { title: 'Payment Details', cart });
 });
 
-app.get('/checkout', async (req, res) => {
-
-    const username = req.session.username;  // Replace with how you manage sessions
-    const users = await readUsersFromFile();
-
-    const user = users.find(u => u.username === username);
-    
-    // Pre-fill the address if available
-    const address = user ? user.address || '' : '';
-
+app.get('/checkout', (req, res) => {
     const cart = req.session.cart;
     if (!cart || cart.length === 0) return res.status(404).send('No items in cart');
-    res.render('checkout', { title: 'Checkout', cart, address });
+    res.render('checkout', { title: 'Checkout', cart });
 });
 
 app.get('/confirmation', (req, res) => res.render('confirmation', { title: 'Confirmation' }));
@@ -171,42 +153,19 @@ app.post('/buy-now', ensureLoggedInAndExists, (req, res) => {
 });
 
 app.post('/process-payment', async (req, res) => {
+    const tempCart = req.session.tempCart;
+    if (!tempCart || tempCart.length === 0) return res.status(404).send('No items in cart for payment');
+    // Handle payment logic
+    req.session.tempCart = null;
+    res.redirect('/confirmation');
+});
 
-    try {
-        const { address } = req.body;
-
-        // Check if the address is provided
-        if (!address || address.trim() === '') {
-            return res.status(400).send('Address is required');
-        }
-
-        const username = req.session.username;
-        const users = await readUsersFromFile();
-
-        // Find the user in the users array
-        const userIndex = users.findIndex(u => u.username === username);
-
-        const tempCart = req.session.tempCart;
-        if (!tempCart || tempCart.length === 0) return res.status(404).send('No items in cart for payment');
-
-        // Handle payment logic
-        req.session.tempCart = null;
-
-        if (userIndex !== -1) {
-        // Update the user's address
-        users[userIndex].address = address;
-
-        // Write the updated users array back to users.json
-        await writeUsersToFile(users);
-
-        res.redirect('/confirmation');
-        } else {
-            res.status(404).send('User not found');
-        }
-        } catch (error) {
-            console.error('Error processing payment:', error);
-            res.status(500).send('Internal Server Error');
-    };
+app.post('/process-checkout', async (req, res) => {
+    const cart = req.session.cart;
+    if (!cart || cart.length === 0) return res.status(404).send('No items in cart for payment');
+    // Handle payment logic
+    req.session.cart = null;
+    res.redirect('/confirmation');
 });
 
 app.post('/remove-from-cart', (req, res) => {
@@ -240,43 +199,14 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.post('/process-checkout', async (req, res) => {
-    try {
-        const { address } = req.body;
-
-        // Check if the address is provided
-        if (!address || address.trim() === '') {
-            return res.status(400).send('Address is required');
-        }
-
-        const username = req.session.username;
-        const users = await readUsersFromFile();
-
-        // Find the user in the users array
-        const userIndex = users.findIndex(u => u.username === username);
-
-        const cart = req.session.cart;
-    
-        if (!cart || cart.length === 0) return res.status(404).send('No items in cart for payment');
-
-        // Handle payment logic
-        req.session.cart = null;
-
-        if (userIndex !== -1) {
-            // Update the user's address
-            users[userIndex].address = address;
-
-            // Write the updated users array back to users.json
-            await writeUsersToFile(users);
-
-            res.redirect('/confirmation');
-        } else {
-            res.status(404).send('User not found');
-        }
-    } catch (error) {
-        console.error('Error processing checkout:', error);
-        res.status(500).send('Internal Server Error');
-    }
+app.post('/checkout', ensureLoggedInAndExists, async (req, res) => {
+    const { address } = req.body;
+    const username = req.session.username;
+    const users = await readUsersFromFile();
+    const user = users.find(u => u.username === username);
+    user.address = address;
+    await writeUsersToFile(users);
+    res.redirect('/confirmation');
 });
 
 // Start the server

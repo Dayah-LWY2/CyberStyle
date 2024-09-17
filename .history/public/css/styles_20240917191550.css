@@ -116,9 +116,7 @@ nav ul.menu li.submenu .dropdown li a {
 
 .category {
     margin: 10px;
-    flex: 1 1 200px;
-    text-align: center;
-    align-items: center;
+    flex: 1 1 200px; /* Adjust size based on available space */
 }
 
 .category img {
@@ -665,7 +663,7 @@ footer {
 
 /* Container for the FAQ section */
 .faq {
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
     font-family: Arial, sans-serif;

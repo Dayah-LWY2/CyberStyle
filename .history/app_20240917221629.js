@@ -204,7 +204,7 @@ app.post('/process-payment', async (req, res) => {
             res.status(404).send('User not found');
         }
         } catch (error) {
-            console.error('Error processing payment:', error);
+            console.error('Error processing checkout:', error);
             res.status(500).send('Internal Server Error');
     };
 });

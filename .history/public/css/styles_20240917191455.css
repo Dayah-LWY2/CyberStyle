@@ -116,9 +116,7 @@ nav ul.menu li.submenu .dropdown li a {
 
 .category {
     margin: 10px;
-    flex: 1 1 200px;
-    text-align: center;
-    align-items: center;
+    flex: 1 1 200px; /* Adjust size based on available space */
 }
 
 .category img {
@@ -180,10 +178,9 @@ nav ul.menu li.submenu .dropdown li a {
     text-align: center;
     color: white;
     background-color: #3d3d3d;
-    padding: 5px; /* Reduced padding */
+    padding: 0px; /* Reduced padding */
     border-radius: 5px;
-    width: 30%; /* Adjust width to match the image width */
-    margin-top: 5px;
+    width: 50%; /* Adjust width to match the image width */
     box-sizing: border-box; /* Ensure padding is included in width */
 }
 
@@ -665,7 +662,7 @@ footer {
 
 /* Container for the FAQ section */
 .faq {
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
     font-family: Arial, sans-serif;

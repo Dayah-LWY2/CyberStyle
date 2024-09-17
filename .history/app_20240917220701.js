@@ -171,42 +171,11 @@ app.post('/buy-now', ensureLoggedInAndExists, (req, res) => {
 });
 
 app.post('/process-payment', async (req, res) => {
-
-    try {
-        const { address } = req.body;
-
-        // Check if the address is provided
-        if (!address || address.trim() === '') {
-            return res.status(400).send('Address is required');
-        }
-
-        const username = req.session.username;
-        const users = await readUsersFromFile();
-
-        // Find the user in the users array
-        const userIndex = users.findIndex(u => u.username === username);
-
-        const tempCart = req.session.tempCart;
-        if (!tempCart || tempCart.length === 0) return res.status(404).send('No items in cart for payment');
-
-        // Handle payment logic
-        req.session.tempCart = null;
-
-        if (userIndex !== -1) {
-        // Update the user's address
-        users[userIndex].address = address;
-
-        // Write the updated users array back to users.json
-        await writeUsersToFile(users);
-
-        res.redirect('/confirmation');
-        } else {
-            res.status(404).send('User not found');
-        }
-        } catch (error) {
-            console.error('Error processing payment:', error);
-            res.status(500).send('Internal Server Error');
-    };
+    const tempCart = req.session.tempCart;
+    if (!tempCart || tempCart.length === 0) return res.status(404).send('No items in cart for payment');
+    // Handle payment logic
+    req.session.tempCart = null;
+    res.redirect('/confirmation');
 });
 
 app.post('/remove-from-cart', (req, res) => {

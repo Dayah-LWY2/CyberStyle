@@ -1,0 +1,58 @@
+<div class="checkout-container">
+    <h1>Checkout</h1>
+    <div>
+        <label for="address">Delivery Address:</label>
+        <textarea id="addressCheckout" name="addressCheckout" rows="4" placeholder="Enter your address..." required></textarea>
+    </div>
+
+    <table class="products-table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Size</th> <!-- Added Size Column -->
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Item Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cart.forEach(item => { %>
+                <tr>
+                    <td><%= item.product.name %></td>
+                    <td><%= item.size %></td> <!-- Display Size -->
+                    <td>RM <%= item.product.price.toFixed(2) %></td>
+                    <td><%= item.quantity %></td>
+                    <td>RM <%= (item.product.price * item.quantity).toFixed(2) %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <div class="remarks-shipping-row">
+        <div class="remark">
+            <label for="remarks">Remark:</label>
+            <input type="text" id="remarks" name="remarks" placeholder="Please leave a message...">
+        </div>
+        <div class="shipping-info">
+            <p>Shipping: RM 5.90</p>
+        </div>
+    </div>
+
+    <div class="total-section">
+        <p>Total: RM <%= (cart.reduce((total, item) => total + (item.quantity * item.product.price), 0) + 5.90).toFixed(2) %></p>
+    </div>
+
+    <div class="payment-method">
+        <form action="/process-checkout" method="post">
+            <label>
+                <input type="radio" name="paymentMethod" value="online-banking" required> Online Banking
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="paymentMethod" value="cod" required> Cash on Delivery
+            </label>
+            <br>
+            <button type="submit" class="payment-btn">Place Order</button>
+        </form>
+    </div>
+</div>

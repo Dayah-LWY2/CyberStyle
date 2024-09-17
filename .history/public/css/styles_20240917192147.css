@@ -665,7 +665,7 @@ footer {
 
 /* Container for the FAQ section */
 .faq {
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
     font-family: Arial, sans-serif;

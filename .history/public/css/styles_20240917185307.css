@@ -116,9 +116,7 @@ nav ul.menu li.submenu .dropdown li a {
 
 .category {
     margin: 10px;
-    flex: 1 1 200px;
-    text-align: center;
-    align-items: center;
+    flex: 1 1 200px; /* Adjust size based on available space */
 }
 
 .category img {
@@ -179,20 +177,19 @@ nav ul.menu li.submenu .dropdown li a {
 .carousel-caption {
     text-align: center;
     color: white;
-    background-color: #3d3d3d;
+    background: #3d3d3d(0, 0, 0, 0.5); /* Optional background for better readability */
     padding: 5px; /* Reduced padding */
     border-radius: 5px;
-    width: 30%; /* Adjust width to match the image width */
-    margin-top: 5px;
+    width: 80%; /* Adjust width to match the image width */
     box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .carousel-caption label {
-    font-size: 1.5rem; /* Smaller font size for the product name */
+    font-size: 1.2rem; /* Smaller font size for the product name */
 }
 
 .carousel-caption p {
-    font-size: 1rem; /* Smaller font size for the price */
+    font-size: 0.9rem; /* Smaller font size for the price */
 }
 
 .payment-container label {
@@ -665,7 +662,7 @@ footer {
 
 /* Container for the FAQ section */
 .faq {
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
     font-family: Arial, sans-serif;
