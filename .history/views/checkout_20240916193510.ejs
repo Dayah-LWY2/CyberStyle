@@ -1,0 +1,51 @@
+<div class="checkout-container">
+  <h1>Shopping Summary</h1>
+  <form action="/process-checkout" method="POST">
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="5" required minlength="40" placeholder="Building/House Number, Street, City, Postal Code, State..."></textarea>
+
+      <table>
+          <thead>
+              <tr>
+                  <th>Item</th>
+                  <th>Size</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Total</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% cart.forEach(item => { %>
+                  <tr>
+                      <td><%= item.product.name %></td>
+                      <td><%= item.size %></td>
+                      <td><%= item.quantity %></td>
+                      <td>RM <%= item.product.price.toFixed(2) %></td>
+                      <td>RM <%= (item.product.price * item.quantity).toFixed(2) %></td>
+                  </tr>
+              <% }) %>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td colspan="4">Total</td>
+                  <td>RM <%= cart.reduce((total, item) => total + (item.quantity * item.product.price), 0).toFixed(2) %></td>
+              </tr>
+          </tfoot>
+      </table>
+
+      <h2>Payment Options</h2>
+      <div class="payment-options">
+          <label>
+              <input type="radio" name="paymentMethod" value="online-banking" required>
+              Online Banking
+          </label>
+          <br>
+          <label>
+              <input type="radio" name="paymentMethod" value="cod" required>
+              Cash on Delivery (COD)
+          </label>
+          <br>
+          <button type="submit" class="btn">Complete Purchase</button>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,68 @@
+[
+    {
+        "code": "1",
+        "name": "Product 1",
+        "category": "new",
+        "images": ["/images/product1.jpg"],
+        "price": 50.00,
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],
+        "description": "ENTAHLAAAAAAAAAAAAAAAAAAAA.",
+        "releaseDate": "2024-09-16T12:00:00Z",
+        "popularity": 0
+    },
+    {
+        "code": "2",
+        "name": "Product 2",
+        "category": "new",
+        "images": ["/images/product2.jpg"],
+        "price": 70.00,
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],
+        "description": "GOJO WEHHHHHHHHH.",
+        "releaseDate": "2024-09-13T12:00:00Z",
+        "popularity": 0
+    },
+    {
+        "code": "3",
+        "name": "Product 3",
+        "category": "kids",
+        "images": ["/images/product3.jpg"],
+        "price": 30.00,
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],
+        "description": "HENSEM KAN GOJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.",
+        "releaseDate": "2024-09-15T12:00:00Z",
+        "popularity": 0
+    },
+    {
+        "code": "1",
+        "name": "Product 1",
+        "category": "kids",
+        "images": ["/images/product1.jpg", "/images/product2.jpg", "/images/product3.jpg"],
+        "price": 50.00,
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],
+        "description": "ENTAHLAAAAAAAAAAAAAAAAAAAA.",
+        "releaseDate": "2024-09-16T12:00:00Z",
+        "popularity": 0
+    },
+    {
+        "code": "2",
+        "name": "Product 2",
+        "category": "kids",
+        "images": ["/images/product2.jpg"],
+        "price": 70.00,
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],
+        "description": "GOJO WEHHHHHHHHH.",
+        "releaseDate": "2024-09-13T12:00:00Z",
+        "popularity": 0
+    },
+    {
+        "code": "3",
+        "name": "Product 3",
+        "category": "kids",
+        "images": ["/images/product3.jpg"],
+        "price": 30.00,
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],
+        "description": "HENSEM KAN GOJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.",
+        "releaseDate": "2024-09-15T12:00:00Z",
+        "popularity": 0
+    }
+]

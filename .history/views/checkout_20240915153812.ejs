@@ -1,0 +1,74 @@
+<div class="checkout-page checkout-container"></div>
+  <!-- Checkout Title -->
+  <h1 class="checkout-title">Checkout</h1>
+
+  <!-- Address Section -->
+  <div class="delivery-address">
+    <label for="address">Delivery Address:</label>
+    <input type="text" id="address" name="address" required minlength="40" placeholder="Customer name, phone number, address...">
+  </div>
+
+  <!-- Product Ordered Table -->
+  <table class="product-ordered">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Item Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart.forEach(item => { %>
+        <tr>
+          <td class="product-name"><img src="path/to/product-image.jpg" alt="Product Image"> <%= item.name %></td>
+          <td>RM<%= item.product.price.toFixed(2) %></td>
+          <td><%= item.quantity %></td>
+          <td>RM<%= (item.product.price * item.quantity).toFixed(2) %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <!-- Remark Section -->
+  <div class="remark-shipping">
+    <div class="remark-section">
+      <label for="remark">Remark:</label>
+      <input type="text" id="remark" name="remark" placeholder="Please leave a message...">
+    </div>
+    <div class="shipping-section">
+      <p>Shipping: RM 5.90</p>
+      <p>Orders Total: RM <%= (cart.reduce((total, item) => total + (item.quantity * item.product.price), 0) + 5.90).toFixed(2) %></p>
+    </div>
+  </div>
+
+  <!-- Payment Methods Section -->
+  <h2 class="payment-title">Payment Method</h2>
+  <div class="payment-method">
+    <div class="payment-type">
+      <h3>Online Banking</h3>
+      <a href="https://onlinebanking-system.com" class="btn payment-btn">Proceed to Online Banking</a> <!-- Replace with actual URL -->
+    </div>
+
+    <div class="payment-type">
+      <h3>Credit / Debit</h3>
+      <a href="https://cardpayment-system.com" class="btn payment-btn">Proceed to Card Payment</a> <!-- Replace with actual URL -->
+    </div>
+
+    <div class="payment-type">
+      <h3>Cash on Delivery (COD)</h3>
+      <label><input type="radio" name="paymentMethod" value="cod"> Cash on Delivery</label>
+    </div>
+  </div>
+
+  <!-- Order Summary Section -->
+  <div class="order-summary">
+    <p>Merchandise Subtotal: RM <%= cart.reduce((total, item) => total + (item.quantity * item.product.price), 0).toFixed(2) %></p>
+    <p>Shipping Total (excl. SST): RM 5.90</p>
+    <p>Shipping Fee SST: RM 0.58</p>
+    <p>Total Payment: RM <%= (cart.reduce((total, item) => total + (item.quantity * item.product.price), 0) + 5.90 + 0.58).toFixed(2) %></p>
+  </div>
+
+  <!-- Place Order Button -->
+  <button type="submit" class="btn place-order-btn">Place Order</button>
+</div>

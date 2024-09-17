@@ -1,0 +1,873 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+}
+
+/* Logo styles */
+.logo {
+    font-size: 24px;
+    margin-right: 20px; /* Add spacing between logo and search bar */
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    align-items: center; /* Center input and button horizontally */
+    position: relative; /* Position relative for absolute positioning of dropdown */
+    margin-right: 20px; /* Add spacing between search bar and menu */
+}
+
+/* Search input styles */
+.search-bar input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* Rounded corners for the left side */
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Search button styles */
+.search-bar button {
+    padding: 8px;
+    border: none;
+    background-color: #333; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Search button hover styles */
+.search-bar button:hover {
+    background-color: #0056b3; /* Button hover color */
+}
+
+/* Style for filter dropdown */
+.filter-dropdown {
+    display: none; /* Hide by default */
+    position: absolute; /* Position it below the search bar */
+    top: 100%; /* Position below the search bar */
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px; /* Adjust width as needed */
+    z-index: 10;
+}
+
+/* Show dropdown when search bar is hovered */
+.search-bar:hover .filter-dropdown {
+    display: block; 
+}
+
+/* Style for search results */
+.search-results {
+    display: none; /* Hide by default */
+    position: absolute; /* Position it below the search bar */
+    top: calc(100% + 10px); /* Position below the search bar with some spacing */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 200px; /* Adjust width as needed */
+    z-index: 1000;
+}
+
+/* Show results on hover */
+.search-bar:hover .search-results {
+    display: block; 
+}
+
+/* Navigation menu styles */
+nav ul.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul.menu li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav ul.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Dropdown styles */
+nav ul.menu li.submenu:hover .dropdown {
+    display: block;
+}
+
+nav ul.menu li.submenu .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+nav ul.menu li.submenu .dropdown li {
+    margin: 0;
+}
+
+nav ul.menu li.submenu .dropdown li a {
+    padding: 5px 10px;
+    display: block;
+    white-space: nowrap;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.explore-btn {
+    padding: 10px 20px;
+    background-color: #3d3d3d;
+    text-decoration: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    background-color: #3d3d3d;
+    text-decoration: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Categories section */
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow categories to wrap on smaller screens */
+    margin: 40px 0;
+}
+
+.category {
+    margin: 10px;
+    flex: 1 1 200px; /* Adjust size based on available space */
+}
+
+.category img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: column; /* Stack title and carousel vertically */
+    align-items: center; /* Center horizontally */
+    overflow: hidden; /* Hide overflow if needed */
+    padding: 20px; /* Increase padding for a larger layout */
+}
+
+.carousel-title h1 {
+    font-size: 3em; /* Increase font size for the title */
+    color: #333; /* Adjust color as needed */
+    text-align: center; /* Center text horizontally */
+}
+
+.carousel {
+    position: relative;
+    width: 80vw; /* Increase width for a larger carousel */
+    height: 60vh; /* Increase height for a larger carousel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; /* Adjust based on the number of items (100% per item) */
+    height: 100%; /* Full height of the carousel container */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 1 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Full height of the carousel container */
+}
+
+.carousel-item img {
+    width: 80%; /* Increase width relative to the carousel container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 70%; /* Increase height relative to the carousel container */
+    object-fit: cover; /* Fit image to container */
+    margin-bottom: 5px; /* Decrease space between image and caption */
+}
+
+.carousel-caption {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Optional background for better readability */
+    padding: 5px; /* Reduced padding */
+    border-radius: 5px;
+    width: 80%; /* Adjust width to match the image width */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.carousel-caption label {
+    font-size: 1.2rem; /* Smaller font size for the product name */
+}
+
+.carousel-caption p {
+    font-size: 0.9rem; /* Smaller font size for the price */
+}
+
+.payment-container label {
+    display: block; /* Makes the label take up the full width */
+    margin-bottom: 5px; /* Space between label and textarea */
+    font-weight: bold;
+}
+  
+.payment-container textarea {
+    width: 15%; /* Full width of the container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.checkout-container label {
+    display: block; /* Makes the label take up the full width */
+    margin-bottom: 5px;
+    font-weight: bold; /* Space between label and textarea */
+}
+
+.checkout-container textarea {
+    width: 15%; /* Full width of the container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+/* Login container */
+.login-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto; /* Center the login container */
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container label {
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+.login-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.login-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #383838;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+.login-container button:hover {
+    background: #0D0D0D;
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Signup container */
+.signup-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.signup-container h1 {
+    margin-bottom: 20px;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-container label {
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+.signup-container input, .signup-container select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.signup-container select {
+    background-color: #fff;
+    color: #333;
+}
+
+.signup-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #383838;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+.signup-container button:hover {
+    background: #0D0D0D;
+}
+
+.signup-container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+/* Gender select warning */
+.gender-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    visibility: hidden;
+}
+
+.signup-container select:invalid + .gender-message {
+    visibility: visible;
+}
+
+main {
+    padding-bottom: 40px;
+}
+
+/* Footer styles */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    list-style: none;
+}
+
+.footer-column p {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile styles */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger-menu div {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    z-index: 1000;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.sidebar .close-btn {
+    align-self: flex-end;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Sidebar dropdown styling */
+.sidebar .dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #444;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.sidebar .dropdown a {
+    color: #fff;
+    padding: 5px 0;
+}
+
+.sidebar .submenu {
+    position: relative;
+}
+
+.sidebar .submenu > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .submenu > a::after {
+    content: "▼";
+    font-size: 12px;
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.sidebar .submenu.active > a::after {
+    transform: rotate(180deg);
+}
+
+.sidebar .submenu.active .dropdown {
+    display: flex;
+}
+
+/* General styles for the popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2e2e2e; /* Dark grey background */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 1000;
+    text-align: center;
+    width: 320px;
+    font-family: 'Roboto', sans-serif; /* Clean, modern font */
+    color: white; /* White text for clarity */
+}
+
+/* Show the popup */
+.popup.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Checkmark styling (simple and modern) */
+.checkmark {
+    font-size: 60px;
+    color: #ffffff; /* White checkmark */
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: pop-in 0.4s ease-in-out;
+}
+
+/* Text styling */
+.popup-content p {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #e0e0e0; /* Light grey text */
+}
+
+/* Button styling for closing the pop-up (optional) */
+.popup-content button {
+    padding: 10px 20px;
+    background-color: #1a1a1a; /* Dark button */
+    border: 1px solid #555; /* Grey border */
+    border-radius: 5px;
+    color: #e0e0e0; /* Light grey text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+    background-color: #333333; /* Slight hover effect */
+}
+
+.product-list-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: #f4f4f4;
+}
+
+.product-list-title h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+.product-list {
+    display: flex; /* Use flexbox to layout items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if the screen size is small */
+    justify-content: space-around; /* Evenly space products across the container */
+    gap: 10px; /* Add space between each product */
+    width: 100vw;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px; /* Set fixed width for product cards */
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-item:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.product-list-image img {
+    width: 100%; /* Ensure the image fills the width of the product item */
+    height: auto; /* Keep aspect ratio */
+    border-radius: 4px;
+}
+
+.product-list-detail h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0 5px;
+}
+
+.product-list-detail p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.general {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: large;
+}
+
+.product-detail-container {
+    display: flex;                /* Arrange the image and details side-by-side */
+    align-items: flex-start;      /* Align items at the top */
+    gap: 20px;                    /* Add space between the image and details */
+    margin: 20px auto;            /* Center the container */
+    max-width: 1200px;            /* Set a maximum width for the container */
+}
+
+.product-image {
+    flex: 1;                      /* The image section takes up 1 part of the space */
+    max-width: 600px;             /* Restrict the maximum width for the image section */
+    display: flex;
+    flex-direction: column;       /* Stack thumbnails below the main image */
+    align-items: flex-start;      /* Align thumbnails to the left */
+}
+
+.product-info {
+    flex: 1.5;                    /* The info section takes up more space than the image section */
+    max-width: 600px;             /* Restrict the maximum width of the details section */
+    padding: 20px;                /* Add some padding for spacing */
+}
+
+/* Styling for main product image */
+#main-product-image {
+    width: 100%;                  /* Ensure the main image fits its container */
+    height: auto;
+    object-fit: cover;            /* Maintain the aspect ratio */
+    max-height: 500px;            /* Restrict the height */
+}
+
+.product-thumbnails {
+    display: flex;
+    gap: 10px;    
+    margin-top: 10px;
+}
+
+.product-thumbnails img {
+    width: 80px;                  /* Increase thumbnail size */
+    height: 80px;       
+    cursor: pointer;
+    border: 2px solid transparent; 
+}
+
+.product-thumbnails img:hover {
+    border-color: #000;           /* Add hover effect */
+}
+
+.product-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;          /* Add spacing between the title and description */
+}
+
+.product-info .product-description {
+    font-size: 16px;              /* Set the font size for the description */
+    color: #555;                  /* Lighter color to differentiate it from other text */
+    margin-bottom: 20px;          /* Add space below the description */
+    line-height: 1.5;             /* Improve readability */
+}
+
+/* Animation for the checkmark */
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade-in effect for the popup */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav ul.menu {
+        display: none; /* Hide the default menu */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show the hamburger icon */
+    }
+
+    .sidebar {
+        display: flex; /* Show the sidebar */
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .explore-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .categories {
+        flex-direction: column;
+    }
+
+    .category {
+        margin: 10px 0;
+    }
+
+    .carousel {
+        width: 100vw; /* Full width on smaller screens */
+        height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    .carousel-title h1 {
+        font-size: 2em; /* Adjust title font size for smaller screens */
+    }
+
+    .carousel-item img {
+        width: 90%; /* Increase width for better fit on smaller screens */
+        max-height: 60%; /* Adjust max-height */
+    }
+
+    .carousel-caption {
+        width: 90%; /* Adjust width for smaller screens */
+        padding: 3px; /* Reduce padding */
+    }
+
+    .carousel-caption label {
+        font-size: 1rem; /* Further reduce font size */
+    }
+
+    .carousel-caption p {
+        font-size: 0.8rem; /* Further reduce font size */
+    }
+
+    .signup-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .signup-container input, .signup-container select, .signup-container button {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .product-detail-container {
+        flex-direction: column;   /* Stack images and details vertically on small screens */
+    }
+
+    .product-info {
+        max-width: 100%;          /* Allow details to take full width */
+        padding: 10px;
+    }
+
+    .product-image {
+        max-width: 100%;          /* Allow images to take full width */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .explore-btn, .category-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}

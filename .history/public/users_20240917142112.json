@@ -1,0 +1,58 @@
+[
+  {
+    "username": "dayah",
+    "email": "nh9547@gmail.com",
+    "password": "251105dayah.",
+    "phone": "0196880861",
+    "gender": "female",
+    "dob": "2005-11-25",
+    "cart": [],
+    "purchased": []
+  },
+  {
+    "username": "dayahtest",
+    "password": "251105dayah.",
+    "cart": [],
+    "purchased": []
+  },
+  {
+    "username": "dayahcomel",
+    "email": "12345@gmail.com",
+    "password": "123456789",
+    "phone": "0123456789",
+    "gender": "female",
+    "dob": "2024-09-16"
+  },
+  {
+    "username": "dayahcomel22",
+    "email": "123452@gmail.com",
+    "password": "12345678",
+    "phone": "01234567892",
+    "gender": "female",
+    "dob": "2024-09-16"
+  },
+  {
+    "username": "dayahcomel225",
+    "email": "1623452@gmail.com",
+    "password": "1234",
+    "phone": "01234567892",
+    "gender": "male",
+    "dob": "2024-09-24"
+  },
+  {
+    "username": "dayahcomel2252",
+    "email": "16234252@gmail.com",
+    "password": "1",
+    "phone": "01234567892",
+    "gender": "female",
+    "dob": "2024-09-05"
+  },
+  {
+    "username": "dayahcomel2252s",
+    "email": "162s34252@gmail.com",
+    "password": "251105dayah",
+    "phone": "01234567892",
+    "gender": "female",
+    "dob": "2024-09-08"
+  }
+]

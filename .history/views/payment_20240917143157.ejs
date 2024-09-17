@@ -1,0 +1,59 @@
+<div class="payment-container">
+  <h1>Shopping Summary</h1>
+  <br>
+  <label for="address">Address:</label>
+  <textarea id="address" name="address" rows="5" required minlength="40" placeholder="Building/House Number, Street, city, postal-code, state..."></textarea>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Size</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (cart && cart.length > 0) { %>
+        <% cart.forEach(item => { %>
+          <tr>
+            <td>
+              <img src="<%= item.images[0] %>" alt="<%= item.name %>" width="50">
+              <%= item.name %>
+            </td>
+            <td><%= item.size %></td>
+            <td><%= item.quantity %></td>
+            <td>RM<%= item.price.toFixed(2) %></td>
+            <td>RM <%= (item.price * item.quantity).toFixed(2) %></td>
+          </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="5">No items in the cart.</td>
+        </tr>
+      <% } %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">Total</td>
+        <td>RM<%= cart.reduce((total, item) => total + (item.quantity * item.price), 0).toFixed(2) %></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <h2>Payment Options</h2>
+  <form action="/process-payment" method="post">
+    <label>
+      <input type="radio" name="paymentMethod" value="online-banking" required>
+      Online Banking
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="paymentMethod" value="cod" required>
+      Cash on Delivery (COD)
+    </label>
+    <br>
+    <button type="submit" class="btn">Complete Purchase</button>
+  </form>
+</div>
