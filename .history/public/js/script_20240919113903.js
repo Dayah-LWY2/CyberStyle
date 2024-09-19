@@ -138,67 +138,35 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchBar = document.getElementById('search-bar');
     const filterOptions = document.getElementById('filter-options');
     const searchButton = document.getElementById('search-btn');
-    const suggestionBox = document.getElementById('suggestion-box');
 
-    // Function to fetch autocomplete suggestions
-    const fetchSuggestions = async (query) => {
-        if (!query) {
-            suggestionBox.innerHTML = '';
-            suggestionBox.style.display = 'none';
-            return;
+    searchBar.addEventListener('input', async function() {
+        const query = searchBar.value;
+        const filter = filterOptions.value;
+        if (query) {
+            const response = await fetch(`/search?q=${encodeURIComponent(query)}&filter=${filter}`);
+            const results = await response.json();
+            displayDropdown(results);  // Display dropdown with suggestions
         }
+    });
 
-        try {
-            const response = await fetch(`/autocomplete?q=${encodeURIComponent(query)}`);
-            const suggestions = await response.json();
-            displayDropdown(suggestions);
-        } catch (error) {
-            console.error('Error fetching suggestions:', error);
-        }
-    };
+    searchButton.addEventListener('click', async function() {
+        const query = searchBar.value;
+        const filter = filterOptions.value;
+        window.location.href = `/search?q=${encodeURIComponent(query)}&filter=${filter}`;
+    });
 
-    // Function to display suggestions in the dropdown
-    const displayDropdown = (suggestions) => {
-        suggestionBox.innerHTML = '';
-        
-        if (suggestions.length === 0) {
-            suggestionBox.style.display = 'none';
-            return;
-        }
-
-        suggestions.forEach(suggestion => {
-            const suggestionElement = document.createElement('div');
-            suggestionElement.classList.add('dropdown-item');
-            suggestionElement.textContent = suggestion.name;
-            suggestionElement.addEventListener('click', () => {
-                window.location.href = suggestion.url;
-            });
-            suggestionBox.appendChild(suggestionElement);
+    function displayDropdown(results) {
+        const dropdown = document.createElement('ul');
+        dropdown.classList.add('search-dropdown');
+        results.forEach(product => {
+            const li = document.createElement('li');
+            li.textContent = product.name;
+            li.addEventListener('click', () => window.location.href = `/product/${product.code}`);
+            dropdown.appendChild(li);
         });
-
-        suggestionBox.style.display = 'block';
-    };
-
-    // Event listener for input in the search bar
-    searchBar.addEventListener('input', function() {
-        const query = this.value.trim();
-        fetchSuggestions(query);
-    });
-
-    // Event listener to hide suggestions when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!suggestionBox.contains(event.target) && event.target !== searchBar) {
-            suggestionBox.style.display = 'none';
-        }
-    });
-
-    // Optional: Handle form submission via Enter key
-    const searchForm = document.getElementById('search-form');
-    searchForm.addEventListener('submit', function(event) {
-        // Ensure suggestions are hidden on form submission
-        suggestionBox.style.display = 'none';
-    });
-
+        document.body.appendChild(dropdown);
+    }
+    
 });
 
 // Popup functionality

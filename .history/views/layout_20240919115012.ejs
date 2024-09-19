@@ -15,24 +15,6 @@
         <div class="logo">
             <h1>CyberStyle</h1>
         </div>
-
-        <div class="search-bar-container">
-            <form id="search-form" action="/search" method="get" autocomplete="off">
-                <input type="text" name="q" id="search-bar" placeholder="Search for products or pages..." value="<%= typeof query !== 'undefined' ? query : '' %>">
-                
-                <select name="filter" id="filter-options">
-                    <option value="">Filter</option>
-                    <option value="price-asc" <%= filter === 'price-asc' ? 'selected' : '' %>>Price: Cheapest</option>
-                    <option value="price-desc" <%= filter === 'price-desc' ? 'selected' : '' %>>Price: Most Expensive</option>
-                    <option value="date-popular" <%= filter === 'date-popular' ? 'selected' : '' %>>Date: Popular</option>
-                    <option value="date-latest" <%= filter === 'date-latest' ? 'selected' : '' %>>Date: Latest</option>
-                    <option value="date-oldest" <%= filter === 'date-oldest' ? 'selected' : '' %>>Date: Oldest</option>
-                </select>
-                
-                <button type="submit" id="search-btn">Search</button>
-            </form>
-            <div id="suggestion-box" class="search-dropdown"></div>
-        </div>
         
         <!-- Hamburger menu for mobile -->
         <div class="hamburger-menu" aria-label="Open Menu">
@@ -83,6 +65,25 @@
                 <li><a href="/cart">🛒</a></li>
             </ul>
         </nav>
+
+        <div class="search-bar-container">
+            <form id="search-form" action="/search" method="get" autocomplete="off">
+                <input type="text" name="q" id="search-bar" placeholder="Search for products or pages..." value="<%= typeof query !== 'undefined' ? query : '' %>">
+                
+                <select name="filter" id="filter-options">
+                    <option value="">Filter</option>
+                    <option value="price-asc" <%= filter === 'price-asc' ? 'selected' : '' %>>Price: Cheapest</option>
+                    <option value="price-desc" <%= filter === 'price-desc' ? 'selected' : '' %>>Price: Most Expensive</option>
+                    <option value="date-popular" <%= filter === 'date-popular' ? 'selected' : '' %>>Date: Popular</option>
+                    <option value="date-latest" <%= filter === 'date-latest' ? 'selected' : '' %>>Date: Latest</option>
+                    <option value="date-oldest" <%= filter === 'date-oldest' ? 'selected' : '' %>>Date: Oldest</option>
+                </select>
+                
+                <button type="submit" id="search-btn">Search</button>
+            </form>
+            <div id="suggestion-box" class="search-dropdown"></div>
+        </div>
+
     </header>
 
     <!-- Main content -->

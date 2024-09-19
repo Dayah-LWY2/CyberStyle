@@ -1,0 +1,23 @@
+<h1>Search Results for "<%= query %>"</h1>
+
+<h2>Products</h2>
+<% if (products.length > 0) { %>
+    <ul>
+        <% products.forEach(product => { %>
+            <li><a href="/product/<%= product.code %>"><%= product.name %> - $<%= product.price %></a></li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No products found.</p>
+<% } %>
+
+<h2>Pages</h2>
+<% if (pages.length > 0) { %>
+    <ul>
+        <% pages.forEach(page => { %>
+            <li><a href="<%= page.url %>"><%= page.name %></a></li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No pages found.</p>
+<% } %>

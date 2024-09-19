@@ -156,7 +156,7 @@ app.get('/confirmation', (req, res) => res.render('confirmation', { title: 'Conf
 app.get('/search', (req, res) => {
     const query = req.query.q ? req.query.q.toLowerCase() : '';
     const filter = req.query.filter || 'none';
-
+    
     // If no search query or filter is applied, redirect to /products
     if (!query && filter === 'none') {
         return res.redirect('/products');
@@ -168,8 +168,7 @@ app.get('/search', (req, res) => {
     if (query) {
         // Search products
         matchedProducts = products.filter(product => 
-            product.name.toLowerCase().includes(query) &&
-            product.category !== 'new'
+            product.name.toLowerCase().includes(query)
         );
 
         // Search pages
@@ -177,7 +176,8 @@ app.get('/search', (req, res) => {
             page.name.toLowerCase().includes(query)
         );
     } else {
-        matchedProducts = products.filter(product => product.category !== 'new');
+        // If no query, show all products
+        matchedProducts = [...products];
     }
 
     // Apply filters only to products

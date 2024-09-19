@@ -134,71 +134,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-
-    const searchBar = document.getElementById('search-bar');
-    const filterOptions = document.getElementById('filter-options');
-    const searchButton = document.getElementById('search-btn');
-    const suggestionBox = document.getElementById('suggestion-box');
-
-    // Function to fetch autocomplete suggestions
-    const fetchSuggestions = async (query) => {
-        if (!query) {
-            suggestionBox.innerHTML = '';
-            suggestionBox.style.display = 'none';
-            return;
-        }
-
-        try {
-            const response = await fetch(`/autocomplete?q=${encodeURIComponent(query)}`);
-            const suggestions = await response.json();
-            displayDropdown(suggestions);
-        } catch (error) {
-            console.error('Error fetching suggestions:', error);
-        }
-    };
-
-    // Function to display suggestions in the dropdown
-    const displayDropdown = (suggestions) => {
-        suggestionBox.innerHTML = '';
-        
-        if (suggestions.length === 0) {
-            suggestionBox.style.display = 'none';
-            return;
-        }
-
-        suggestions.forEach(suggestion => {
-            const suggestionElement = document.createElement('div');
-            suggestionElement.classList.add('dropdown-item');
-            suggestionElement.textContent = suggestion.name;
-            suggestionElement.addEventListener('click', () => {
-                window.location.href = suggestion.url;
-            });
-            suggestionBox.appendChild(suggestionElement);
-        });
-
-        suggestionBox.style.display = 'block';
-    };
-
-    // Event listener for input in the search bar
-    searchBar.addEventListener('input', function() {
-        const query = this.value.trim();
-        fetchSuggestions(query);
-    });
-
-    // Event listener to hide suggestions when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!suggestionBox.contains(event.target) && event.target !== searchBar) {
-            suggestionBox.style.display = 'none';
-        }
-    });
-
-    // Optional: Handle form submission via Enter key
-    const searchForm = document.getElementById('search-form');
-    searchForm.addEventListener('submit', function(event) {
-        // Ensure suggestions are hidden on form submission
-        suggestionBox.style.display = 'none';
-    });
-
 });
 
 // Popup functionality
@@ -228,3 +163,51 @@ window.onload = function() {
         showPopupMessage('signed-up');
     }
 };
+
+function toggleFilterDropdown() {
+    const filterDropdown = document.getElementById('filterDropdown');
+    filterDropdown.style.display = (filterDropdown.style.display === 'none' || !filterDropdown.style.display) ? 'block' : 'none';
+}
+
+// Apply filter when clicked
+function applyFilter(filter) {
+    console.log('Filter applied:', filter);
+    // Implement the logic to filter based on category, newest, oldest, or popular
+    // For example, you can redirect or send an AJAX request to apply the filter
+    const searchQuery = document.getElementById('searchQuery').value;
+    if (searchQuery) {
+        window.location.href = `/search?query=${searchQuery}&filter=${filter}`;
+    } else {
+        window.location.href = `/search?filter=${filter}`;
+    }
+}
+
+// Handle search suggestions
+function searchSuggestions() {
+    const query = document.getElementById('searchQuery').value;
+    const suggestionsDropdown = document.getElementById('suggestions');
+
+    if (query.length > 0) {
+        fetch(`/search-suggestions?query=${query}`)
+            .then(response => response.json())
+            .then(suggestions => {
+                suggestionsDropdown.innerHTML = '';
+                if (suggestions.length > 0) {
+                    suggestions.forEach(suggestion => {
+                        const li = document.createElement('li');
+                        li.textContent = suggestion.name;
+                        li.addEventListener('click', () => {
+                            window.location.href = `/products/${suggestion.code}`;
+                        });
+                        suggestionsDropdown.appendChild(li);
+                    });
+                    suggestionsDropdown.style.display = 'block';
+                } else {
+                    suggestionsDropdown.style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Error fetching suggestions:', error));
+    } else {
+        suggestionsDropdown.style.display = 'none';
+    }
+}

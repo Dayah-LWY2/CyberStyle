@@ -32,18 +32,6 @@ const loadProducts = async () => {
 };
 loadProducts(); // Initialize products
 
-// Load page data from pages.json
-let pages = [];
-const loadPages = async () => {
-    try {
-        const data = await fs.readFile(path.join(__dirname, 'public', 'pages.json'), 'utf-8');
-        pages = JSON.parse(data);
-    } catch (err) {
-        console.error('Error reading pages.json:', err);
-    }
-};
-loadPages()
-
 // Load users data from users.json
 const readUsersFromFile = async () => {
     try {
@@ -92,34 +80,26 @@ const ensureLoggedInAndExists = async (req, res, next) => {
 // Routes
 app.get('/', async (req, res) => {
     if (products.length === 0) await loadProducts();
-    res.render('index', { title: 'Home', products, filter: null });
+    res.render('index', { title: 'Home', products });
 });
 
-app.get('/about', (req, res) => res.render('about', { title: 'About Us', filter: null }));
-app.get('/shipping-&-returns', (req, res) => res.render('shipping-&-returns', { title: 'Shipping & Returns', filter: null }));
-app.get('/store-policy', (req, res) => res.render('store-policy', { title: 'Store Policy', filter: null }));
-app.get('/faq', (req, res) => res.render('faq', { title: 'FAQ', filter: null }));
-app.get('/women', (req, res) => res.render('women', { title: 'Women', products, filter: null }));
-app.get('/men', (req, res) => res.render('men', { title: 'Men', products, filter: null }));
-app.get('/kids', (req, res) => res.render('kids', { title: 'Kids', products, filter: null }));
-app.get('/login', (req, res) => res.render('login', { title: 'Login', errorMessage: req.query.errorMessage, filter: null }));
-
-app.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) return res.redirect('/error');
-        res.redirect('/?loggedOut=true');
-    });
-});
-
-app.get('/signup', (req, res) => res.render('signup', { title: 'Sign Up', errorMessage: req.query.errorMessage, filter: null }));
-app.get('/products', (req, res) => res.render('products', { title: 'All Products', products, filter: null }));
+app.get('/about', (req, res) => res.render('about', { title: 'About Us' }));
+app.get('/shipping-&-returns', (req, res) => res.render('shipping-&-returns', { title: 'Shipping & Returns' }));
+app.get('/store-policy', (req, res) => res.render('store-policy', { title: 'Store Policy' }));
+app.get('/faq', (req, res) => res.render('faq', { title: 'FAQ' }));
+app.get('/women', (req, res) => res.render('women', { title: 'Women', products }));
+app.get('/men', (req, res) => res.render('men', { title: 'Men', products }));
+app.get('/kids', (req, res) => res.render('kids', { title: 'Kids', products }));
+app.get('/login', (req, res) => res.render('login', { title: 'Login', errorMessage: req.query.errorMessage }));
+app.get('/signup', (req, res) => res.render('signup', { title: 'Sign Up', errorMessage: req.query.errorMessage }));
+app.get('/products', (req, res) => res.render('products', { title: 'All Products', products }));
 app.get('/product/:code', (req, res) => {
     const product = products.find(p => p.code === req.params.code);
     if (!product) return res.status(404).send('Product not found');
-    res.render('product', { title: 'Product', product, filter: null });
+    res.render('product', { title: 'Product', product });
 });
 
-app.get('/cart', (req, res) => res.render('cart', { title: 'Cart', cart: req.session.cart, filter: null}));
+app.get('/cart', (req, res) => res.render('cart', { title: 'Cart', cart: req.session.cart }));
 
 app.get('/payment', async (req, res) => {
 
@@ -133,7 +113,7 @@ app.get('/payment', async (req, res) => {
 
     const cart = req.session.tempCart || req.session.cart;
     if (!cart || cart.length === 0) return res.status(404).send('No items found for payment');
-    res.render('payment', { title: 'Payment Details', cart, address, filter: null });
+    res.render('payment', { title: 'Payment Details', cart, address });
 });
 
 app.get('/checkout', async (req, res) => {
@@ -142,104 +122,88 @@ app.get('/checkout', async (req, res) => {
     const users = await readUsersFromFile();
 
     const user = users.find(u => u.username === username);
-    
-    // Pre-fill the address if available
     const address = user ? user.address || '' : '';
 
     const cart = req.session.cart;
     if (!cart || cart.length === 0) return res.status(404).send('No items in cart');
-    res.render('checkout', { title: 'Checkout', cart, address, filter: null });
+    res.render('checkout', { title: 'Checkout', cart, address });
 });
 
-app.get('/confirmation', (req, res) => res.render('confirmation', { title: 'Confirmation', filter: null }));
+app.get('/confirmation', (req, res) => res.render('confirmation', { title: 'Confirmation' }));
 
-app.get('/search', (req, res) => {
+// Search Route with Error Handling
+app.get('/search', async (req, res) => {
     const query = req.query.q ? req.query.q.toLowerCase() : '';
-    const filter = req.query.filter || 'none';
+    const sort = req.query.sort || '';
 
-    // If no search query or filter is applied, redirect to /products
-    if (!query && filter === 'none') {
-        return res.redirect('/products');
+    let filteredProducts = [];
+    if (query) {
+        filteredProducts = products.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            (product.description && product.description.toLowerCase().includes(query))
+        );
+    } else {
+        filteredProducts = [...products]; // Clone all products if no query
     }
 
-    let matchedProducts = [];
-    let matchedPages = [];
-
+    let filteredPages = [];
     if (query) {
-        // Search products
-        matchedProducts = products.filter(product => 
-            product.name.toLowerCase().includes(query) &&
-            product.category !== 'new'
-        );
-
-        // Search pages
-        matchedPages = pages.filter(page =>
+        filteredPages = pages.filter(page => 
             page.name.toLowerCase().includes(query)
         );
-    } else {
-        matchedProducts = products.filter(product => product.category !== 'new');
     }
 
-    // Apply filters only to products
-    switch (filter) {
-        case 'price-asc':
-            matchedProducts.sort((a, b) => a.price - b.price);
-            break;
-        case 'price-desc':
-            matchedProducts.sort((a, b) => b.price - a.price);
-            break;
-        case 'date-popular':
-            matchedProducts.sort((a, b) => b.popularity - a.popularity);
-            break;
-        case 'date-latest':
-            matchedProducts.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
-            break;
-        case 'date-oldest':
-            matchedProducts.sort((a, b) => new Date(a.dateAdded) - new Date(b.dateAdded));
-            break;
-        default:
-            break;
+    // Sorting logic based on the sort parameter
+    if (sort === 'cheapest') {
+        filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sort === 'most-expensive') {
+        filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (sort === 'latest') {
+        filteredProducts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else if (sort === 'oldest') {
+        filteredProducts.sort((a, b) => new Date(a.date) - new Date(b.date));
+    } else if (sort === 'popular') {
+        filteredProducts.sort((a, b) => (b.popularity || 0) - (a.popularity || 0)); // Default to 0 if undefined
     }
 
-    let results = [];
-
-    if (query) {
-        results = matchedProducts.concat(matchedPages);
-    } else {
-        results = matchedProducts;
-    }
-
-    res.render('searchResults', { title: 'Search Results', results, query, filter });
+    // Render the search results page
+    res.render('search-results', { 
+        title: 'Search Results', 
+        query, 
+        products: filteredProducts, 
+        pages: filteredPages 
+    });
 });
 
-// Autocomplete Suggestions Route
-app.get('/autocomplete', (req, res) => {
+// Search Suggestions Route with Error Handling
+app.get('/search-suggestions', (req, res) => {
     const query = req.query.q ? req.query.q.toLowerCase() : '';
+
     if (!query) {
-        return res.json([]);
+        return res.json([]); // Return empty array if no query
     }
 
-    const matchedProducts = products.filter(product => 
+    // Get matching products
+    let productSuggestions = products.filter(product => 
         product.name.toLowerCase().includes(query)
-    );
-
-    const matchedPages = pages.filter(page =>
-        page.name.toLowerCase().includes(query)
-    );
-
-    const suggestions = matchedProducts.map(product => ({
-        type: 'product',
+    ).map(product => ({
         name: product.name,
         url: `/product/${product.code}`
-    })).concat(matchedPages.map(page => ({
-        type: 'page',
+    }));
+
+    // Get matching pages
+    let pageSuggestions = pages.filter(page => 
+        page.name.toLowerCase().includes(query)
+    ).map(page => ({
         name: page.name,
         url: page.url
-    })));
+    }));
 
-    res.json(suggestions);
+    // Combine and return suggestions
+    res.json([...productSuggestions, ...pageSuggestions]);
 });
 
+// Cart Management Routes
 app.post('/add-to-cart', ensureLoggedInAndExists, (req, res) => {
     const { productCode, size, quantity } = req.body;
     const product = products.find(p => p.code === productCode);
@@ -295,75 +259,9 @@ app.post('/process-payment', async (req, res) => {
         // Update the user's address
         users[userIndex].address = address;
 
-        // Write the updated users array back to users.json
-        await writeUsersToFile(users);
-
-        res.redirect('/confirmation');
-        } else {
-            res.status(404).send('User not found');
-        }
-        } catch (error) {
-            console.error('Error processing payment:', error);
-            res.status(500).send('Internal Server Error');
-    };
-});
-
-app.post('/remove-from-cart', (req, res) => {
-    const { productCode, size } = req.body;
-    req.session.cart = req.session.cart.filter(item => !(item.product.code === productCode && item.size === size));
-    res.redirect('/cart');
-});
-
-app.post('/signup', async (req, res) => {
-    const { username, email, password, confirmPassword, phone, gender, dob } = req.body;
-    const users = await readUsersFromFile();
-
-    if (users.some(user => user.username === username)) return res.redirect('/signup?errorMessage=Username already exists.');
-    if (users.some(user => user.email === email)) return res.redirect('/signup?errorMessage=Email already exists.');
-    if (password !== confirmPassword) return res.redirect('/signup?errorMessage=Passwords do not match.');
-
-    users.push({ username, email, password, phone, gender, dob });
-    await writeUsersToFile(users);
-    res.redirect('/login?signedUp=true');
-});
-
-app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    const users = await readUsersFromFile();
-    const user = users.find(u => u.username === username && u.password === password);
-    if (user) {
-        req.session.username = user.username;
-        res.redirect('/?loggedIn=true');
-    } else {
-        res.redirect('/login?errorMessage=Invalid username or password.');
-    }
-});
-
-app.post('/process-checkout', async (req, res) => {
-    try {
-        const { address } = req.body;
-
-        // Check if the address is provided
-        if (!address || address.trim() === '') {
-            return res.status(400).send('Address is required');
-        }
-
-        const username = req.session.username;
-        const users = await readUsersFromFile();
-
-        // Find the user in the users array
-        const userIndex = users.findIndex(u => u.username === username);
-
-        const cart = req.session.cart;
-    
-        if (!cart || cart.length === 0) return res.status(404).send('No items in cart for payment');
-
-        // Handle payment logic
-        req.session.cart = null;
-
-        if (userIndex !== -1) {
-            // Update the user's address
-            users[userIndex].address = address;
+            // Optionally, add purchased items to user's purchase history
+            users[userIndex].purchased = users[userIndex].purchased || [];
+            users[userIndex].purchased.push(...tempCart);
 
             // Write the updated users array back to users.json
             await writeUsersToFile(users);
@@ -373,9 +271,67 @@ app.post('/process-checkout', async (req, res) => {
             res.status(404).send('User not found');
         }
     } catch (error) {
-        console.error('Error processing checkout:', error);
+        console.error('Error processing payment:', error);
         res.status(500).send('Internal Server Error');
     }
+});
+
+app.post('/remove-from-cart', (req, res) => {
+    const { productCode, size } = req.body;
+    req.session.cart = req.session.cart.filter(item => !(item.product.code === productCode && item.size === size));
+    res.redirect('/cart');
+});
+
+// User Authentication Routes
+app.post('/signup', async (req, res) => {
+    const { username, email, password, confirmPassword, phone, gender, dob } = req.body;
+    
+    // Basic validation
+    if (!username || !email || !password || !confirmPassword) {
+        return res.redirect('/signup?errorMessage=All fields are required.');
+    }
+    if (password !== confirmPassword) {
+        return res.redirect('/signup?errorMessage=Passwords do not match.');
+    }
+    if (users.some(user => user.username === username)) {
+        return res.redirect('/signup?errorMessage=Username already exists.');
+    }
+    if (users.some(user => user.email === email)) {
+        return res.redirect('/signup?errorMessage=Email already exists.');
+    }
+
+    // Create new user
+    const newUser = { 
+        username, 
+        email, 
+        password, // Note: In production, never store plain passwords. Use hashing!
+        phone, 
+        gender, 
+        dob,
+        cart: [],
+        purchased: []
+    };
+    users.push(newUser);
+    await writeUsersToFile(users);
+    res.redirect('/login?signedUp=true');
+});
+
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+    const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+        req.session.username = user.username;
+        res.redirect('/?loggedIn=true');
+    } else {
+        res.redirect('/login?errorMessage=Invalid username or password.');
+    }
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) return res.redirect('/error');
+        res.redirect('/?loggedOut=true');
+    });
 });
 
 // Start the server

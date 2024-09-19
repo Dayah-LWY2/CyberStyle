@@ -4,8 +4,7 @@
 
 <div class="product-list">
     <% products.forEach(function(product) { 
-        if (product.category !== 'new') {  // Exclude products with 'new' category
-    %>
+        if (product.category !== 'new') { %>
         <div class="product-item">
             <a href="/product/<%= product.code %>">
                 <div class="product-list-image">
@@ -17,7 +16,6 @@
                 </div>
             </a>
         </div>
-    <% 
-        } 
-    }); %>
+        <% }
+    <%});%>
 </div>

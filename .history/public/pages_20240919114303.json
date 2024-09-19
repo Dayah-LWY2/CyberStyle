@@ -1,0 +1,9 @@
+[
+    { "name": "About Us", "url": "/about" },
+    { "name": "Shipping & Returns", "url": "/shipping-&-returns" },
+    { "name": "Store Policy", "url": "/store-policy" },
+    { "name": "FAQ", "url": "/faq" },
+    { "name": "Women Collection", "url": "/women" },
+    { "name": "Men Collection", "url": "/men" },
+    { "name": "Kids Collection", "url": "/kids" }
+]

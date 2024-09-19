@@ -92,17 +92,17 @@ const ensureLoggedInAndExists = async (req, res, next) => {
 // Routes
 app.get('/', async (req, res) => {
     if (products.length === 0) await loadProducts();
-    res.render('index', { title: 'Home', products, filter: null });
+    res.render('index', { title: 'Home', products });
 });
 
-app.get('/about', (req, res) => res.render('about', { title: 'About Us', filter: null }));
-app.get('/shipping-&-returns', (req, res) => res.render('shipping-&-returns', { title: 'Shipping & Returns', filter: null }));
-app.get('/store-policy', (req, res) => res.render('store-policy', { title: 'Store Policy', filter: null }));
-app.get('/faq', (req, res) => res.render('faq', { title: 'FAQ', filter: null }));
-app.get('/women', (req, res) => res.render('women', { title: 'Women', products, filter: null }));
-app.get('/men', (req, res) => res.render('men', { title: 'Men', products, filter: null }));
-app.get('/kids', (req, res) => res.render('kids', { title: 'Kids', products, filter: null }));
-app.get('/login', (req, res) => res.render('login', { title: 'Login', errorMessage: req.query.errorMessage, filter: null }));
+app.get('/about', (req, res) => res.render('about', { title: 'About Us' }));
+app.get('/shipping-&-returns', (req, res) => res.render('shipping-&-returns', { title: 'Shipping & Returns' }));
+app.get('/store-policy', (req, res) => res.render('store-policy', { title: 'Store Policy' }));
+app.get('/faq', (req, res) => res.render('faq', { title: 'FAQ' }));
+app.get('/women', (req, res) => res.render('women', { title: 'Women', products }));
+app.get('/men', (req, res) => res.render('men', { title: 'Men', products }));
+app.get('/kids', (req, res) => res.render('kids', { title: 'Kids', products }));
+app.get('/login', (req, res) => res.render('login', { title: 'Login', errorMessage: req.query.errorMessage }));
 
 app.get('/logout', (req, res) => {
     req.session.destroy((err) => {
@@ -111,15 +111,15 @@ app.get('/logout', (req, res) => {
     });
 });
 
-app.get('/signup', (req, res) => res.render('signup', { title: 'Sign Up', errorMessage: req.query.errorMessage, filter: null }));
-app.get('/products', (req, res) => res.render('products', { title: 'All Products', products, filter: null }));
+app.get('/signup', (req, res) => res.render('signup', { title: 'Sign Up', errorMessage: req.query.errorMessage }));
+app.get('/products', (req, res) => res.render('products', { title: 'All Products', products }));
 app.get('/product/:code', (req, res) => {
     const product = products.find(p => p.code === req.params.code);
     if (!product) return res.status(404).send('Product not found');
-    res.render('product', { title: 'Product', product, filter: null });
+    res.render('product', { title: 'Product', product });
 });
 
-app.get('/cart', (req, res) => res.render('cart', { title: 'Cart', cart: req.session.cart, filter: null}));
+app.get('/cart', (req, res) => res.render('cart', { title: 'Cart', cart: req.session.cart }));
 
 app.get('/payment', async (req, res) => {
 
@@ -133,7 +133,7 @@ app.get('/payment', async (req, res) => {
 
     const cart = req.session.tempCart || req.session.cart;
     if (!cart || cart.length === 0) return res.status(404).send('No items found for payment');
-    res.render('payment', { title: 'Payment Details', cart, address, filter: null });
+    res.render('payment', { title: 'Payment Details', cart, address });
 });
 
 app.get('/checkout', async (req, res) => {
@@ -148,19 +148,14 @@ app.get('/checkout', async (req, res) => {
 
     const cart = req.session.cart;
     if (!cart || cart.length === 0) return res.status(404).send('No items in cart');
-    res.render('checkout', { title: 'Checkout', cart, address, filter: null });
+    res.render('checkout', { title: 'Checkout', cart, address });
 });
 
-app.get('/confirmation', (req, res) => res.render('confirmation', { title: 'Confirmation', filter: null }));
+app.get('/confirmation', (req, res) => res.render('confirmation', { title: 'Confirmation' }));
 
 app.get('/search', (req, res) => {
     const query = req.query.q ? req.query.q.toLowerCase() : '';
     const filter = req.query.filter || 'none';
-
-    // If no search query or filter is applied, redirect to /products
-    if (!query && filter === 'none') {
-        return res.redirect('/products');
-    }
 
     let matchedProducts = [];
     let matchedPages = [];
@@ -168,8 +163,7 @@ app.get('/search', (req, res) => {
     if (query) {
         // Search products
         matchedProducts = products.filter(product => 
-            product.name.toLowerCase().includes(query) &&
-            product.category !== 'new'
+            product.name.toLowerCase().includes(query)
         );
 
         // Search pages
@@ -177,7 +171,8 @@ app.get('/search', (req, res) => {
             page.name.toLowerCase().includes(query)
         );
     } else {
-        matchedProducts = products.filter(product => product.category !== 'new');
+        // If no query, show all products
+        matchedProducts = [...products];
     }
 
     // Apply filters only to products
