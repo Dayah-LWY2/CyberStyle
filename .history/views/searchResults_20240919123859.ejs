@@ -1,5 +1,8 @@
 <h1>Search Results for "<%= query || 'All Products' %>"</h1>
 
+<% if (results.length === 0) { %>
+    <p>No results found.</p>
+<% } else { %>
     <div class="product-list">
         <% if (results.length === 0) { %>
             <p>No results found.</p>
