@@ -1,0 +1,28 @@
+[
+  {
+    "username": "dayah",
+    "email": "nh9547@gmail.com",
+    "password": "251105dayah.",
+    "phone": "0196880861",
+    "gender": "female",
+    "dob": "2005-11-25",
+    "cart": [],
+    "purchased": [
+      "8"
+    ],
+    "address": "My private address"
+  },
+  {
+    "username": "dayahcomel",
+    "email": "162s34252@gmail.com",
+    "password": "1234",
+    "phone": "0123456789",
+    "gender": "other",
+    "dob": "2024-09-06",
+    "purchased": [
+      "2",
+      "8"
+    ],
+    "address": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+]

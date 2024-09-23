@@ -1,0 +1,272 @@
+[
+  {
+    "code": "01",
+    "name": "Product 1",
+    "category": "new",
+    "images": [
+      "/images/product1.jpg"
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "Fresh style, perfect for summer.",
+    "dateAdded": "2024-09-16",
+    "popularity": 0
+  },
+  {
+    "code": "02",
+    "name": "Product 2",
+    "category": "new",
+    "images": [
+      "/images/product2.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "Smart summer wear for IT pros.",
+    "dateAdded": "2024-09-13",
+    "popularity": 0
+  },
+  {
+    "code": "03",
+    "name": "Product 3",
+    "category": "new",
+    "images": [
+      "/images/product3.jpg"
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "Playful tech style for sunny days.",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  },
+  {
+    "code": "1",
+    "name": "Product 1",
+    "category": "kids",
+    "images": [
+      "/images/product1.jpg",
+      "/images/product2.jpg",
+      "/images/product3.jpg"
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "stock": {
+      "S": 100,
+      "M": 200,
+      "L": 150,
+      "XL": 300,
+      "2XL": 50,
+      "3XL": 40
+    },
+    "description": "ENTAHLAAAAAAAAAAAAAAAAAAAA.",
+    "dateAdded": "2024-09-16",
+    "popularity": 0,
+    "reviews": [
+      {
+        "username": "dayah",
+        "rating": 5,
+        "comment": "Dayah tu siapa do, wah produk ni bagus sangat. Saya kasih 100k stars.",
+        "date": "2024-09-21T16:45:09.767Z"
+      }
+    ]
+  },
+  {
+    "code": "2",
+    "name": "Product 2",
+    "category": "kids",
+    "images": [
+      "/images/product2.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "GOJO WEHHHHHHHHH.",
+    "dateAdded": "2024-09-13",
+    "popularity": 0
+  },
+  {
+    "code": "3",
+    "name": "Product 3",
+    "category": "kids",
+    "images": [
+      "/images/product3.jpg"
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "HENSEM KAN GOJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  },
+  {
+    "code": "4",
+    "name": "Product 1",
+    "category": "men",
+    "images": [
+      "/images/product1.jpg",
+      "/images/product2.jpg",
+      "/images/product3.jpg"
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "ENTAHLAAAAAAAAAAAAAAAAAAAA.",
+    "dateAdded": "2024-09-16",
+    "popularity": 0
+  },
+  {
+    "code": "5",
+    "name": "men",
+    "category": "men",
+    "images": [
+      "/images/product2.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "GOJO WEHHHHHHHHH.",
+    "dateAdded": "2024-09-13",
+    "popularity": 0
+  },
+  {
+    "code": "6",
+    "name": "men",
+    "category": "men",
+    "images": [
+      "/images/product3.jpg"
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "HENSEM KAN GOJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  },
+  {
+    "code": "7",
+    "name": "Product 1",
+    "category": "women",
+    "images": [
+      "/images/product1.jpg",
+      "/images/product2.jpg",
+      "/images/product3.jpg"
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "ENTAHLAAAAAAAAAAAAAAAAAAAA.",
+    "dateAdded": "2024-09-16",
+    "popularity": 0
+  },
+  {
+    "code": "8",
+    "name": "Product 2",
+    "category": "women",
+    "images": [
+      "/images/product2.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "GOJO WEHHHHHHHHH.",
+    "dateAdded": "2024-09-13",
+    "popularity": 0,
+    "reviews": [
+      {
+        "username": "dayah",
+        "rating": 3,
+        "comment": "This is very nice product lol",
+        "date": "2024-09-21T06:22:23.150Z"
+      }
+    ]
+  },
+  {
+    "code": "9",
+    "name": "Product 3",
+    "category": "women",
+    "images": [
+      "/images/product3.jpg"
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "HENSEM KAN GOJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  }
+]
