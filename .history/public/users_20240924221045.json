@@ -1,0 +1,24 @@
+[
+  {
+    "username": "dayah",
+    "email": "kenapasayasukaawakhmm@gmail.com",
+    "password": "251105dayah.",
+    "phone": "0123456789",
+    "gender": "female",
+    "dob": "2024-09-10",
+    "purchased": {
+      "1": 9,
+      "2": 23,
+      "3": 1
+    },
+    "cart": [
+      {
+        "productCode": "8",
+        "size": "S",
+        "quantity": 1
+      }
+    ],
+    "address": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "rewardsPoints": 0
+  }
+]

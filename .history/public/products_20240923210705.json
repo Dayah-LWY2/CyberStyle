@@ -1,0 +1,268 @@
+[
+  {
+    "code": "01",
+    "name": "Product 1",
+    "category": "new",
+    "images": [
+      ""
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "Fresh style, perfect for summer.",
+    "dateAdded": "2024-09-16",
+    "popularity": 0
+  },
+  {
+    "code": "02",
+    "name": "Product 2",
+    "category": "new",
+    "images": [
+      "/images/product2.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "Smart summer wear for IT pros.",
+    "dateAdded": "2024-09-13",
+    "popularity": 0
+  },
+  {
+    "code": "03",
+    "name": "Product 3",
+    "category": "new",
+    "images": [
+      ""
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "Playful tech style for sunny days.",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  },
+  {
+    "code": "1",
+    "name": "Infant CyberStyle hoodie",
+    "category": "kids",
+    "images": [
+      "/images/infant-cyberstyle-hoodie.jpg",
+      "/images/infant-cyberstyle-hoodie2.jpg",
+      "/images/kids-size-chart.jpg"
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "The pattern of the crocodile looking at the computer means that we want to attract the attention of today's children so that they are interested in IT. This hoodie also has a zipper in the middle which is very suitable for children to wear. \n Material: 60% cotton and 40% polyester",
+    "dateAdded": "2024-09-16",
+    "popularity": 0,
+    "reviews": [
+      {
+        "username": "dayah",
+        "rating": 5,
+        "comment": "Dayah tu siapa do, wah produk ni bagus sangat. Saya kasih 100k stars.",
+        "date": "2024-09-21T16:45:09.767Z"
+      }
+    ]
+  },
+  {
+    "code": "2",
+    "name": "Rose CyberStyle",
+    "category": "kids",
+    "images": [
+      "/images/rose-cyberstyle.jpg",
+      "/images/rose-cyberstyle2.jpg",
+      "/images/kids-size-chart.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "Rose CyberStyle which uses the pattern of a cat reading a book and a computer. This is due to many parents or guardians not wanting to expose their children or children under their care to technology such as smartphones and laptops at a young age. Therefore, we want to correct the inaccurate assumption that we actually want to interest them in the IT field only, but they still need to apply the practice of reading books and reduce the time they spend playing with technology like smartphones and tablets. Customers can choose several colors that we have prepared which are black, white, dark blue, apple green, mustard, orange, pink, charcoal, and grey. Material: ringspun cotton",
+    "dateAdded": "2024-09-13",
+    "popularity": 0
+  },
+  {
+    "code": "3",
+    "name": "CyberStyle Infant Onesie",
+    "category": "kids",
+    "images": [
+      "/images/cyberstyle-infant-onesie.jpg",
+      "/images/cyberstyle-infant-onesie2.jpg",
+      "/images/kids-size-chart.jpg"
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "HENSEM KAN GOJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  },
+  {
+    "code": "4",
+    "name": "Cyber Wave Tee",
+    "category": "men",
+    "images": [
+      "/images/cyber-wave-tee.jpg",
+      "/images/cyber-wave-tee2.jpg",
+      "/images/men-size-chart.jpg"
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "The inspiration for the shirt is the future and technology. The design features a digital grid pattern, bold typography, and a futuristic theme. Material: Cotton-Polyester Blend",
+    "dateAdded": "2024-09-16",
+    "popularity": 0
+  },
+  {
+    "code": "5",
+    "name": "Tech Fusion Graphic Tee",
+    "category": "men",
+    "images": [
+      "/images/tech-fusion-graphic-tee.jpg",
+      "/images/tech-fusion-graphic-tee2.jpg",
+      "/images/men-size-chart.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "The design features abstract geometric shapes integrated with the text \"WHERE FASHION & TECHNOLOGY MERGE.\" It symbolizes the fusion of fashion with technology. Material: Poly-cotton blend (50% cotton, 50% polyester)",
+    "dateAdded": "2024-09-13",
+    "popularity": 0
+  },
+  {
+    "code": "6",
+    "name": "men",
+    "category": "men",
+    "images": [
+      "/images/men-size-chart.jpg"
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "The text \"Cyber Style\" is in neon purple and repeated several times with a bold digital-style font. The design includes a globe graphic and a barcode beneath the text. Material: Poly-cotton blend (50% cotton, 50% polyester)",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  },
+  {
+    "code": "7",
+    "name": "Product 1",
+    "category": "women",
+    "images": [
+      "/images/women-size-chart.jpg"
+    ],
+    "price": 50,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "ENTAHLAAAAAAAAAAAAAAAAAAAA.",
+    "dateAdded": "2024-09-16",
+    "popularity": 0
+  },
+  {
+    "code": "8",
+    "name": "Product 2",
+    "category": "women",
+    "images": [
+      "/images/women-size-chart.jpg"
+    ],
+    "price": 70,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "GOJO WEHHHHHHHHH.",
+    "dateAdded": "2024-09-13",
+    "popularity": 0,
+    "reviews": [
+      {
+        "username": "dayah",
+        "rating": 3,
+        "comment": "This is very nice product lol",
+        "date": "2024-09-21T06:22:23.150Z"
+      }
+    ]
+  },
+  {
+    "code": "9",
+    "name": "Product 3",
+    "category": "women",
+    "images": [
+      "/images/women-size-chart.jpg"
+    ],
+    "price": 30,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "description": "HENSEM KAN GOJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.",
+    "dateAdded": "2024-09-15",
+    "popularity": 0
+  }
+]

@@ -1,0 +1,56 @@
+<div class="confirmation-container">
+    <h1>Thank You for Your Purchase!</h1>
+    <p>Your order has been successfully processed.</p>
+
+    <h2>Order Summary</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (cart && cart.length > 0) { %>
+                <% cart.forEach(item => { %>
+                    <tr>
+                        <td><%= item.product.name %></td>
+                        <td><%= item.size %></td>
+                        <td><%= item.quantity %></td>
+                        <td>$<%= (item.product.price * item.quantity).toFixed(2) %></td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">No items in your order.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <h2>Shipping Address</h2>
+    <p>
+        <strong><%= address %></strong>
+    </p>
+
+    <a href="/" class="btn">Continue Shopping</a>
+</div>
+
+<div class="recommendations">
+    <h2>Recommended for You</h2>
+    <div class="recommended-products">
+        <% recommendations.forEach(product => { %>
+            <div class="product-card">
+                <a href="/product/<%= product.code %>">
+                    <img src="<%= product.image %>" alt="<%= product.name %>" class="product-image">
+                </a>
+                <div class="product-info">
+                    <h3><%= product.name %></h3>
+                    <p>$<%= product.price.toFixed(2) %></p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
