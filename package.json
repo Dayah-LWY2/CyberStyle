@@ -13,7 +13,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google-cloud/dialogflow": "^6.8.0",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
+    "csurf": "^1.10.0",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^5.0.0",
@@ -23,4 +26,3 @@
     "path": "^0.12.7"
   }
 }
-

@@ -1,0 +1,14 @@
+<!-- delivered.ejs -->
+<h1>Delivered Products</h1>
+<% if (deliveredItems.length > 0) { %>
+  <ul>
+    <% deliveredItems.forEach(item => { %>
+      <li>
+        Product Code: <%= item.productCode %> - Quantity: <%= item.quantity %> - Delivered on: <%= new Date(item.date).toLocaleDateString() %>
+        <a href="/product/<%= item.productCode %>/review">Rate Now</a>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No delivered products found.</p>
+<% } %>

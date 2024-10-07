@@ -1,0 +1,22 @@
+<!-- purchased.ejs -->
+<h1>Purchased Products</h1>
+<% if (purchases.length > 0) { %>
+  <ul>
+    <% purchases.forEach(purchase => { %>
+      <li>
+        Product Code: <%= purchase.productCode %> - Quantity: <%= purchase.quantity %> - Purchased on: <%= new Date(purchase.date).toLocaleDateString() %>
+        <% if (purchase.status === 'purchased') { %>
+          <form action="/receive-product" method="POST">
+            <input type="hidden" name="productCode" value="<%= purchase.productCode %>">
+            <input type="hidden" name="purchaseDate" value="<%= purchase.date %>">
+            <button type="submit">Receive Now</button>
+          </form>
+        <% } else if (purchase.status === 'delivered') { %>
+          <button disabled>Rate Now</button>
+        <% } %>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No purchased products found.</p>
+<% } %>

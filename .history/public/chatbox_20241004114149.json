@@ -1,0 +1,141 @@
+{
+    "intents": [
+      {
+        "intent": "greeting",
+        "keywords": {
+          "en": ["hello", "hi", "hey", "greetings"],
+          "ms": ["hai", "selamat datang", "apa khabar"]
+        },
+        "responses": {
+          "en": [
+            "Hello! How can I assist you today?",
+            "Hi there! What can I do for you?",
+            "Greetings! How may I help?"
+          ],
+          "ms": [
+            "Hai! Bagaimana saya boleh membantu anda hari ini?",
+            "Selamat datang! Apa yang boleh saya bantu?",
+            "Apa khabar! Bagaimana saya boleh membantu?"
+          ]
+        },
+        "followup": {
+          "en": "Is there anything specific you would like help with today?",
+          "ms": "Adakah anda memerlukan bantuan khusus hari ini?"
+        }
+      },
+      {
+        "intent": "goodbye",
+        "keywords": {
+          "en": ["bye", "goodbye", "see you", "later"],
+          "ms": ["selamat tinggal", "jumpa lagi", "nanti"]
+        },
+        "responses": {
+          "en": [
+            "Goodbye! Have a great day!",
+            "See you later!",
+            "Take care, talk to you soon!"
+          ],
+          "ms": [
+            "Selamat tinggal! Semoga hari anda baik!",
+            "Jumpa lagi!",
+            "Jaga diri, jumpa lagi!"
+          ]
+        }
+      },
+      {
+        "intent": "help",
+        "keywords": {
+          "en": ["help", "assist", "support"],
+          "ms": ["bantu", "pertolongan", "sokongan"]
+        },
+        "responses": {
+          "en": [
+            "I'm here to help! What do you need assistance with?",
+            "How can I support you today?",
+            "Feel free to ask me anything!"
+          ],
+          "ms": [
+            "Saya di sini untuk membantu! Apa yang anda perlukan?",
+            "Bagaimana saya boleh menyokong anda hari ini?",
+            "Jangan ragu untuk bertanya!"
+          ]
+        }
+      },
+      {
+        "intent": "feedback",
+        "keywords": {
+          "en": ["good", "bad", "helpful", "not helpful"],
+          "ms": ["baik", "buruk", "berguna", "tidak berguna"]
+        },
+        "responses": {
+          "en": [
+            "Thank you for your feedback! How can I improve?",
+            "I appreciate your input! What can I do better?"
+          ],
+          "ms": [
+            "Terima kasih atas maklum balas anda! Bagaimana saya boleh memperbaiki?",
+            "Saya menghargai maklum balas anda! Apa yang boleh saya lakukan dengan lebih baik?"
+          ]
+        }
+      },
+      {
+        "intent": "weather",
+        "keywords": {
+          "en": ["weather", "forecast"],
+          "ms": ["cuaca", "ramalan"]
+        },
+        "responses": {
+          "en": [
+            "What city are you interested in for the weather?",
+            "Could you tell me which location you want the weather for?"
+          ],
+          "ms": [
+            "Bandar mana yang anda ingin tahu tentang cuacanya?",
+            "Bolehkah anda beritahu saya lokasi yang anda mahu tahu tentang cuacanya?"
+          ]
+        }
+      },
+      {
+        "intent": "location_query",
+        "keywords": {
+          "en": ["where", "find", "location"],
+          "ms": ["di mana", "cari", "lokasi"]
+        },
+        "responses": {
+          "en": [
+            "What location are you looking for?",
+            "Can you specify the place you want to find?"
+          ],
+          "ms": [
+            "Lokasi apa yang anda cari?",
+            "Bolehkah anda nyatakan tempat yang anda mahu cari?"
+          ]
+        }
+      }
+    ],
+    "fallback": {
+      "responses": {
+        "en": [
+          "I'm sorry, I didn't understand that. Could you please clarify?",
+          "Hmm, I'm not sure what you mean. Can you explain it differently?",
+          "Can you please rephrase that?"
+        ],
+        "ms": [
+          "Maaf, saya tidak faham itu. Bolehkah anda menjelaskan?",
+          "Hmm, saya tidak pasti apa yang anda maksudkan. Bolehkah anda menerangkannya dengan berbeza?",
+          "Bolehkah anda ulang semula?"
+        ]
+      },
+      "clarification": {
+        "en": [
+          "Are you asking for help, or do you need something else?",
+          "Could you specify what exactly you're looking for?"
+        ],
+        "ms": [
+          "Adakah anda meminta bantuan, atau adakah anda memerlukan sesuatu yang lain?",
+          "Bolehkah anda nyatakan apa yang anda cari?"
+        ]
+      }
+    }
+  }
+  

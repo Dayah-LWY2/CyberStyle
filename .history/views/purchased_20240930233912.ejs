@@ -1,0 +1,35 @@
+<h1>Delivered Products</h1>
+
+<% if (delivered.length > 0) { %>
+  <ul>
+    <% delivered.forEach(purchase => { %>
+      <li id="delivered-product-<%= purchase.productCode %>">
+        Product Code: <%= purchase.productCode %> - Quantity: <%= purchase.quantity %> - Delivered on: <%= new Date(purchase.date).toLocaleDateString() %>
+
+        <% 
+        // Ensure products array exists before calling .find()
+        let product = products ? products.find(p => p.code === purchase.productCode) : null;
+        %>
+
+        <% if (product) { %>
+          <!-- Check if the user has already reviewed the product -->
+          <% const hasReviewed = product.reviews.some(review => review.username === username); %>
+
+          <% if (!hasReviewed) { %>
+            <!-- Show "Rate Now" button if not reviewed -->
+            <a href="/product/<%= purchase.productCode %>" class="rate-now-btn">Rate Now</a>
+          <% } else { %>
+            <!-- Show rating if already reviewed -->
+            <span>Rated: <%= product.reviews.find(r => r.username === username).rating %> stars</span>
+          <% } %>
+        <% } else { %>
+          <p>Product details not found.</p>
+        <% } %>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No delivered products yet.</p>
+<% } %>
+
+<script src="/js/script.js"></script>

@@ -28,8 +28,8 @@
     "name": "Infant CyberStyle hoodie",
     "category": "kids",
     "images": [
-      "/images/infant-cyberstyle-hoodie.jpg",
-      "/images/infant-cyberstyle-hoodie2.jpg",
+      "/images/infant-cyberstyle-hoodie.png",
+      "/images/infant-cyberstyle-hoodie2.png",
       "/images/kids-size-chart.jpg"
     ],
     "price": 50,
@@ -45,7 +45,7 @@
     "stock": {
       "3 Month": 11,
       "6 Month": 34,
-      "12 Month": 77,
+      "12 Month": 75,
       "18 Month": 66,
       "2 Year": 77,
       "3 Year": 77,
@@ -53,7 +53,7 @@
     },
     "description": "The pattern of the crocodile looking at the computer means that we want to attract the attention of today's children so that they are interested in IT. This hoodie also has a zipper in the middle which is very suitable for children to wear.<br>Material: 60% cotton and 40% polyester",
     "dateAdded": "2024-09-16",
-    "popularity": 0,
+    "popularity": 2,
     "reviews": [
       {
         "username": "dayah",
@@ -68,8 +68,8 @@
     "name": "Rose CyberStyle",
     "category": "kids",
     "images": [
-      "/images/rose-cyberstyle.jpg",
-      "/images/rose-cyberstyle2.jpg",
+      "/images/rose-cyberstyle.png",
+      "/images/rose-cyberstyle2.png",
       "/images/kids-size-chart.jpg"
     ],
     "price": 70,
@@ -83,25 +83,25 @@
       "4 Year"
     ],
     "stock": {
-      "3 Month": 11,
-      "6 Month": 34,
-      "12 Month": 77,
-      "18 Month": 66,
-      "2 Year": 77,
-      "3 Year": 77,
+      "3 Month": 5,
+      "6 Month": 17,
+      "12 Month": 36,
+      "18 Month": 61,
+      "2 Year": 74,
+      "3 Year": 76,
       "4 Year": 44
     },
     "description": "Rose CyberStyle which uses the pattern of a cat reading a book and a computer. This is due to many parents or guardians not wanting to expose their children or children under their care to technology such as smartphones and laptops at a young age. Therefore, we want to correct the inaccurate assumption that we actually want to interest them in the IT field only, but they still need to apply the practice of reading books and reduce the time they spend playing with technology like smartphones and tablets.<br>Material: ringspun cotton",
     "dateAdded": "2024-09-13",
-    "popularity": 6
+    "popularity": 79
   },
   {
     "code": "3",
     "name": "CyberStyle Infant Onesie",
     "category": "kids",
     "images": [
-      "/images/cyberstyle-infant-onesie.jpg",
-      "/images/cyberstyle-infant-onesie2.jpg",
+      "/images/cyberstyle-infant-onesie.png",
+      "/images/cyberstyle-infant-onesie2.png",
       "/images/kids-size-chart.jpg"
     ],
     "price": 30,
@@ -116,16 +116,16 @@
     ],
     "stock": {
       "3 Month": 11,
-      "6 Month": 34,
-      "12 Month": 77,
-      "18 Month": 66,
+      "6 Month": 30,
+      "12 Month": 75,
+      "18 Month": 64,
       "2 Year": 77,
       "3 Year": 77,
       "4 Year": 44
     },
     "description": "We create this design because we want our customer to have a suitable infant for their babies, so that their children wont get any irritation because they wear an unsuitable clothes. There are a few color that customer can choose, that are pink, hot pink, black, and white.<br>Material: cotton",
     "dateAdded": "2024-09-15",
-    "popularity": 0
+    "popularity": 8
   },
   {
     "code": "4",
@@ -177,15 +177,15 @@
     ],
     "stock": {
       "XS": 11,
-      "S": 22,
-      "M": 33,
-      "L": 77,
+      "S": 19,
+      "M": 32,
+      "L": 76,
       "XL": 66,
       "XXL": 77
     },
     "description": "The design features abstract geometric shapes integrated with the text \"WHERE FASHION & TECHNOLOGY MERGE.\" It symbolizes the fusion of fashion with technology.<br>Material: Poly-cotton blend (50% cotton, 50% polyester)",
     "dateAdded": "2024-09-13",
-    "popularity": 1
+    "popularity": 6
   },
   {
     "code": "6",
@@ -238,14 +238,22 @@
     "stock": {
       "XS": 11,
       "S": 22,
-      "M": 34,
-      "L": 77,
+      "M": 33,
+      "L": 76,
       "XL": 66,
       "XXL": 77
     },
     "description": "Design featuring the slogan \"BORN TO GAME\" in large pixel text and the words \"READY, SET, PLAY\" below in smaller pixel font. The text color alternates between light purple and blue.<br>Material: Poly-cotton blend (50% cotton, 50% polyester)",
     "dateAdded": "2024-09-16",
-    "popularity": 0
+    "popularity": 2,
+    "reviews": [
+      {
+        "username": "dayah",
+        "rating": 5,
+        "comment": "fvfvffrgf",
+        "date": "2024-10-01T07:58:21.820Z"
+      }
+    ]
   },
   {
     "code": "8",
@@ -266,16 +274,16 @@
       "XXL"
     ],
     "stock": {
-      "XS": 11,
+      "XS": 9,
       "S": 22,
-      "M": 34,
+      "M": 29,
       "L": 77,
       "XL": 66,
       "XXL": 77
     },
     "description": "The design features a 3D wireframe globe hovering above two wireframe hands, representing digital control and innovation. The text \"REVOLUTION\" is subtly layered, with \"DON'T WAIT TO LIVE YOUR LIFE\" beneath it. The theme centers around virtual reality, digital transformation, and innovation.<br>Material: Poly-cotton blend (50% cotton, 50% polyester)",
     "dateAdded": "2024-09-13",
-    "popularity": 0,
+    "popularity": 7,
     "reviews": [
       {
         "username": "dayah",

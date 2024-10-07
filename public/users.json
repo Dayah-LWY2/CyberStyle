@@ -6,50 +6,94 @@
     "phone": "0123456789",
     "gender": "female",
     "dob": "2024-09-10",
-    "purchased": {
-      "1": 11,
-      "2": 49,
-      "3": 5,
-      "4": 1,
-      "5": 3,
-      "6": 1,
-      "7": 3,
-      "8": 4,
-      "9": 1
-    },
-    "cart": [
+    "purchased": [
       {
         "productCode": "8",
-        "size": "S",
-        "quantity": 1
-      },
-      {
-        "productCode": "8",
-        "size": "M",
-        "quantity": 1
+        "quantity": 2,
+        "date": "2024-09-30T15:22:20.791Z",
+        "status": "delivered"
       },
       {
         "productCode": "2",
-        "size": "S",
-        "quantity": 12
+        "quantity": 3,
+        "date": "2024-10-01T04:15:02.465Z",
+        "status": "delivered"
+      },
+      {
+        "productCode": "2",
+        "quantity": 1,
+        "date": "2024-10-01T04:20:24.558Z",
+        "status": "delivered"
+      },
+      {
+        "productCode": "7",
+        "quantity": 1,
+        "date": "2024-10-01T07:15:02.118Z",
+        "status": "delivered"
+      },
+      {
+        "productCode": "7",
+        "quantity": 1,
+        "date": "2024-10-01T07:58:00.425Z",
+        "status": "delivered"
+      },
+      {
+        "productCode": "2",
+        "quantity": 1,
+        "date": "2024-10-01T13:38:01.003Z",
+        "status": "purchased"
       },
       {
         "productCode": "3",
-        "size": "M",
-        "quantity": 1
+        "quantity": 1,
+        "date": "2024-10-01T13:38:01.003Z",
+        "status": "purchased"
+      },
+      {
+        "productCode": "8",
+        "quantity": 1,
+        "date": "2024-10-01T13:38:01.003Z",
+        "status": "purchased"
       },
       {
         "productCode": "2",
-        "size": "M",
-        "quantity": 3
+        "quantity": 1,
+        "date": "2024-10-01T13:39:17.155Z",
+        "status": "purchased"
       },
       {
         "productCode": "2",
-        "size": "12 Month",
-        "quantity": 1
+        "quantity": 1,
+        "date": "2024-10-01T13:41:19.041Z",
+        "status": "purchased"
+      },
+      {
+        "productCode": "2",
+        "quantity": 1,
+        "date": "2024-10-01T13:42:04.639Z",
+        "status": "purchased"
+      },
+      {
+        "productCode": "3",
+        "quantity": 1,
+        "date": "2024-10-07T08:32:14.973Z",
+        "status": "purchased"
+      },
+      {
+        "productCode": "2",
+        "quantity": 26,
+        "date": "2024-10-07T08:32:14.973Z",
+        "status": "purchased"
+      },
+      {
+        "productCode": "5",
+        "quantity": 1,
+        "date": "2024-10-07T08:32:14.973Z",
+        "status": "purchased"
       }
     ],
+    "cart": [],
     "address": "s",
-    "rewardsPoints": 342
+    "rewardsPoints": 4180
   }
 ]

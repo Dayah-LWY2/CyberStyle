@@ -1,0 +1,1468 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    color: black;
+    background-color: white;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+    position: relative;
+}
+
+.logo {
+    font-size: 18px;
+    color: white;
+}
+
+.search-bar-container {
+    position: relative;
+    margin-left: 10px;
+    display: flex;
+    gap: 10px;
+    text-align: center;
+}
+
+#search-bar {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#filter-options {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-btn {
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #555;
+}
+
+/* Autocomplete Dropdown Styles */
+.search-dropdown {
+    color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: black;
+    border: 1px solid #ccc;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: black;
+}
+
+nav ul.menu {
+    list-style: none;
+    display: flex;
+}
+
+nav ul.menu li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav ul.menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav ul.menu li.submenu:hover .dropdown {
+    display: block;
+}
+
+nav ul.menu li.submenu .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+nav ul.menu li.submenu .dropdown li {
+    margin: 0;
+}
+
+nav ul.menu li.submenu .dropdown li a {
+    padding: 5px 10px;
+    display: block;
+    white-space: nowrap;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #D3D3D3;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.explore-btn {
+    padding: 10px 20px;
+    background-color: #3d3d3d;
+    text-decoration: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Make the whole category clickable */
+.category-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Ensure text color doesn't change */
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    flex: 1 1 200px;
+    text-align: center;
+    align-items: center;
+    padding: 20px; /* Add some padding for spacing */
+    transition: transform 0.2s ease; /* Add hover effect */
+    border: 1px solid transparent;
+}
+
+.category:hover {
+    transform: scale(1.05); /* Add slight scale on hover */
+    border-color: #ddd; /* Optional: Add a border color on hover */
+}
+
+/* Adjust image size */
+.category img {
+    max-width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Categories section */
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+/* Button styling */
+.category-btn {
+    padding: 10px 20px;
+    background-color: #3d3d3d;
+    text-decoration: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.fashion-section {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-left, .image-right {
+    position: absolute;
+  }
+  
+  .image-left {
+    width: 200px;
+    top: 30px; /* Moves image above the text container */
+    left: -50px; /* Position close to the container */
+    z-index: -1; /* Places it behind the text container */
+  }
+  
+  .image-right {
+    width: 120px;
+    bottom: -50px; /* Moves image below the text container */
+    right: -50px; /* Position close to the bottom right of the container */
+    z-index: -1; /* Places it behind the text container */
+  }
+  
+  .image-left img, .image-right img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .content-container {
+    background-color: #fef9f4;
+    padding: 40px;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+    z-index: 1; /* Ensures the text is always on top of images */
+  }
+  
+  .content-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .content-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .story-button {
+    margin-top: 20px;
+    background-color: #a35d3a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .story-button:hover {
+    background-color: #8a4c30;
+  }
+
+.carousel-container {
+    display: flex;
+    flex-direction: column; /* Stack title and carousel vertically */
+    align-items: center; /* Center horizontally */
+    overflow: hidden; /* Hide overflow if needed */
+    padding: 20px; /* Increase padding for a larger layout */
+}
+
+.carousel-title h1 {
+    font-size: 3em; /* Increase font size for the title */
+    color: #333; /* Adjust color as needed */
+    text-align: center; /* Center text horizontally */
+}
+
+.carousel {
+    position: relative;
+    width: 80vw; /* Increase width for a larger carousel */
+    height: 60vh; /* Increase height for a larger carousel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; /* Adjust based on the number of items (100% per item) */
+    height: 100%; /* Full height of the carousel container */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 1 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Full height of the carousel container */
+}
+
+.carousel-item img {
+    width: 100%; /* Increase width relative to the carousel container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 90%; /* Increase height relative to the carousel container */
+    object-fit: contain; 
+    margin-bottom: 5px; /* Decrease space between image and caption */
+}
+
+.carousel-caption {
+    text-align: center;
+    color: white;
+    background-color: #3d3d3d;
+    padding: 5px; /* Reduced padding */
+    border-radius: 5px;
+    width: 30%; /* Adjust width to match the image width */
+    margin-top: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.carousel-caption label {
+    font-size: 1.5rem; /* Smaller font size for the product name */
+}
+
+.carousel-caption p {
+    font-size: 1rem; /* Smaller font size for the price */
+}
+
+.payment-container label {
+    display: block; /* Makes the label take up the full width */
+    margin-bottom: 5px; /* Space between label and textarea */
+    font-weight: bold;
+}
+  
+.payment-container textarea {
+    width: 15%; /* Full width of the container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+.payment-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.payment-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.payment-container textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.checkout-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.checkout-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.checkout-container textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.products-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.products-table th, .products-table td {
+    border: 1px solid;
+    padding: 8px;
+    text-align: left;
+}
+
+.remark-shipping-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+.remark {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.shipping-info {
+    flex: 0.5;
+    text-align: right;
+}
+
+.total-section {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.payment-method {
+    margin-top: 20px;
+}
+
+.payment-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+}
+
+/* Login container */
+.login-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    text-align: left;
+    margin: 0 auto; /* Center the login container */
+    color: black;
+    margin-top: 70px;
+}
+
+.login-container h1 {
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+.login-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.login-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #383838;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+.login-container button:hover {
+    background: #0D0D0D;
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Signup container */
+.signup-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+    margin: 50px auto;
+    color: black;
+}
+
+.signup-container h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-container label {
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+.signup-container input, .signup-container select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.signup-container select {
+    background-color: #fff;
+    color: #333;
+}
+
+.signup-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #383838;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+.signup-container button:hover {
+    background: #0D0D0D;
+}
+
+.signup-container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+/* Gender select warning */
+.gender-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    visibility: hidden;
+}
+
+.signup-container select:invalid + .gender-message {
+    visibility: visible;
+}
+
+main {
+    padding-bottom: 40px;
+}
+
+/* Footer styles */
+footer {
+    padding: 5px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    list-style: none;
+}
+
+.footer-column p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile styles */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger-menu div {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    z-index: 1000;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.sidebar .close-btn {
+    align-self: flex-end;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Sidebar dropdown styling */
+.sidebar .dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #444;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.sidebar .dropdown a {
+    color: #fff;
+    padding: 5px 0;
+}
+
+.sidebar .submenu {
+    position: relative;
+}
+
+.sidebar .submenu > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .submenu > a::after {
+    content: "▼";
+    font-size: 12px;
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.sidebar .submenu.active > a::after {
+    transform: rotate(180deg);
+}
+
+.sidebar .submenu.active .dropdown {
+    display: flex;
+}
+
+/* General styles for the popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2e2e2e; /* Dark grey background */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 1000;
+    text-align: center;
+    width: 320px;
+    font-family: 'Roboto', sans-serif; /* Clean, modern font */
+    color: white; /* White text for clarity */
+}
+
+/* Show the popup */
+.popup.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Checkmark styling (simple and modern) */
+.checkmark {
+    font-size: 60px;
+    color: #ffffff; /* White checkmark */
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: pop-in 0.4s ease-in-out;
+}
+
+/* Text styling */
+.popup-content p {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #e0e0e0; /* Light grey text */
+}
+
+/* Button styling for closing the pop-up (optional) */
+.popup-content button {
+    padding: 10px 20px;
+    background-color: #1a1a1a; /* Dark button */
+    border: 1px solid #555; /* Grey border */
+    border-radius: 5px;
+    color: #e0e0e0; /* Light grey text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+    background-color: #333333; /* Slight hover effect */
+}
+
+.product-list-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: #D3D3D3;
+}
+
+.product-list-title h1 {
+    font-size: 28px;
+    color: black;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    width: 100vw;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack the contents vertically */
+    justify-content: space-between; /* Ensure space is distributed between items */
+    height: 100%; /* Ensure it occupies full height for alignment */
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-list-image {
+    flex-grow: 1; /* Image section grows to fill available space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-list-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.product-list-detail {
+    margin-top: 20px; /* Space between image and details */
+}
+
+.product-list-detail h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0 5px;
+}
+
+.product-list-detail p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.general {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: large;
+}
+
+.general h1, .general h2, .general h3 {
+    font-size: 35px;
+}
+
+.about-general {
+    display: flex; /* Keep the image and text side by side */
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Ensure equal space distribution */
+    padding: 20px; /* Add padding around the content */
+    gap: 20px; /* Add space between image and text */
+    color: black;
+}
+
+.about-general .about-image {
+    flex: 1; /* Allow image to take equal space */
+    max-width: 40%; /* Adjust to make space for the vertical image */
+    text-align: center; /* Center the image in its container */
+}
+
+.about-general .about-image img {
+    width: 100%; /* Image takes full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 700px; /* Cap the image height to prevent it from being too tall */
+    border-radius: 12px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.about-general .about-info {
+    flex: 1; /* Allow text to take equal space */
+    max-width: 55%; /* Adjust text width to complement the vertical image */
+}
+
+.about-general .about-info h1, 
+.about-general .about-info h2, 
+.about-general .about-info p {
+    margin-bottom: 15px; /* Space between paragraphs for readability */
+}
+
+.about-general .text-size-info {
+    font-size: 12px; /* Smaller size for the text size label */
+    color: #555; /* Subtle color for the size label */
+    margin-top: 10px; /* Add spacing between the text and the label */
+}
+
+/* Container for the FAQ section */
+.faq {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+  
+  /* Individual FAQ item */
+.faq-item {
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+}
+  
+  /* FAQ question style */
+.faq-question {
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between; /* Align question text and icon */
+    align-items: center;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+  
+  /* Icon (toggle indicator) next to the question */
+.faq-question .icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+  
+  /* Change color when active */
+.faq-question.active {
+    color: grey;
+}
+  
+/* FAQ answer - hidden by default */
+.faq-answer {
+    max-height: 0;  /* Initial height of the answer is 0 (hidden) */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0;
+    color: #333;
+    font-size: 16px;
+}
+  
+/* Open state for the answer */
+.faq-answer.open {
+    padding: 10px 0;
+    max-height: 200px;
+    overflow: visible;
+}
+  
+/* Rotate the icon when the answer is visible */
+.faq-question.active .icon {
+    transform: rotate(45deg);  /* "+" turns into "×" */
+}
+  
+/* Optional: Hover effect for the question */
+.faq-question:hover {
+    color: grey;
+}
+
+.product-detail-container {
+    display: flex;                /* Arrange the image and details side-by-side */
+    align-items: flex-start;      /* Align items at the top */
+    gap: 20px;                    /* Add space between the image and details */
+    margin: 20px auto;            /* Center the container */
+    max-width: 1200px;            /* Set a maximum width for the container */
+    overflow: hidden;
+}
+
+.product-image {
+    flex: 1;                      /* The image section takes up 1 part of the space */
+    max-width: 600px;             /* Restrict the maximum width for the image section */
+    display: flex;
+    flex-direction: column;       /* Stack thumbnails below the main image */
+    align-items: flex-start;      /* Align thumbnails to the left */
+}
+
+.product-info {
+    flex: 1.5;                    /* The info section takes up more space than the image section */
+    max-width: 600px;             /* Restrict the maximum width of the details section */
+    padding: 20px;                /* Add some padding for spacing */
+}
+
+/* Styling for main product image */
+#main-product-image {
+    width: 100%;                  /* Ensure the main image fits its container */
+    height: auto;
+    object-fit: contain;           
+    max-height: 500px;
+}
+
+.product-thumbnails {
+    display: flex;
+    gap: 10px;    
+    margin-top: 10px;
+}
+
+.product-thumbnails img {
+    width: 80px;                  /* Increase thumbnail size */
+    height: 80px;       
+    cursor: pointer;
+    border: 2px solid transparent; 
+}
+
+.product-thumbnails img:hover {
+    border-color: #000;           /* Add hover effect */
+}
+
+.product-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;          /* Add spacing between the title and description */
+}
+
+.product-info .product-description {
+    font-size: 16px;              /* Set the font size for the description */
+    color: #555;                  /* Lighter color to differentiate it from other text */
+    margin-bottom: 20px;          /* Add space below the description */
+    line-height: 1.5;             /* Improve readability */
+}
+
+.reviews-section {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: black;
+}
+
+.average-rating {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.star {
+    color: black; /* Star color */
+    font-size: 1.5em; /* Adjust size as needed */
+}
+
+.review-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.review-item strong {
+    font-weight: bold;
+    color: black; /* Username color */
+}
+
+.review-form-section {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.review-form-section label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.comment {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+button[type="submit"] {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: grey;
+}
+
+.must-login-message {
+    margin-top: 20px;
+    color: grey; /* Color for the login message */
+    font-style: italic;
+}
+
+.must-purchase-message {
+    margin-top: 20px;
+    color: grey; /* Color for the login message */
+    font-style: italic;
+}
+
+.recommendations {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+}
+
+.recommendations h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+    letter-spacing: 1px;
+    text-align: left; /* Align header to the left */
+    padding-left: 20px; /* Add some space from the left edge */
+}
+
+.recommended-products {
+    display: flex;
+    justify-content: center; /* Center the product cards */
+    gap: 40px; /* Increase space between product cards */
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1400px; /* Limit the width of the section */
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    width: 300px; /* Increase the width of product cards */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative; /* Enable positioning for floating elements */
+}
+
+.product-card:hover {
+    transform: translateY(-8px); /* Lift the product card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.recommended-image {
+    width: 100%;
+    height: 250px; /* Make the images bigger */
+    border-radius: 12px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+.product-card:hover .recommended-image {
+    opacity: 0.9; /* Slight opacity change on hover */
+}
+
+.recommended-info h3 {
+    font-size: 20px; /* Increase font size */
+    font-weight: 600;
+    color: #333;
+    margin: 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.recommended-info p {
+    font-size: 18px; /* Increase font size for price */
+    color: #444;
+    font-weight: 700;
+}
+
+/* Container around the product list */
+.purchase-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Each item in the purchase list */
+  .purchase-item {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Image container */
+  .purchase-container {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  /* Product image styling */
+  .purchase-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /* Product information styling */
+  .purchase-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Title and quantity */
+  .purchase-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .purchase-quantity {
+    font-size: 14px;
+    color: #888;
+    margin-left: 10px;
+  }
+  
+  /* Pricing and total */
+  .purchase-pricing {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  /* Delivery status */
+  .delivery-status {
+    font-size: 12px;
+    color: green;
+    margin-bottom: 10px;
+  }
+  
+  /* Action buttons */
+  .receive-btn, .rate-now-btn, .already-rated-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .receive-btn {
+    background-color: black;
+    border: none;
+    color: white;
+  }
+  
+  .rate-now-btn {
+    background-color: grey;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+  }
+  
+  .already-rated-btn {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+  }  
+
+  .rewards-container {
+    display: flex;
+    flex-direction: column; /* Stacks the checkbox-label and points deducted vertically */
+}
+
+.checkbox-label {
+    display: flex; /* Aligns checkbox and label in a row */
+    align-items: center; /* Vertically centers items */
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 8px; /* Adds space between checkbox and label */
+    margin-top: 0; /* Reset any default top margin */
+}
+
+.checkbox-label label {
+    margin: 0; /* Reset any default margin */
+}
+
+.rewards-text {
+    margin-left: 5px; /* Adds space between label and rewards points text */
+}
+
+.points-deducted {
+    margin-top: 5px; /* Adds space above the points deducted text */
+}
+
+
+/* Animation for the checkmark */
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade-in effect for the popup */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1200px) {
+    .search-item {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo, hamburger, and search bar vertically */
+        align-items: center; /* Center all header elements */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Add some space between the logo and search bar */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show the hamburger icon */
+        position: absolute; /* Keep it on the right beside the logo */
+        right: 20px;
+        top: 20px;
+    }
+
+    /* Move the search bar below the logo and hamburger menu and center it */
+    .search-bar-container {
+        order: 2; /* Ensure it appears after the logo */
+        display: flex;
+        justify-content: center; /* Center the search bar */
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    nav ul.menu {
+        display: none; /* Hide the default menu */
+    }
+
+    .sidebar {
+        display: flex; /* Show the sidebar */
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .explore-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .search-item {
+        width: calc(50% - 20px);
+    }
+
+    #search-bar {
+        width: 200px;
+    }
+
+    .categories {
+        flex-direction: column;
+    }
+
+    .category {
+        margin: 10px 0;
+    }
+
+    .carousel {
+        width: 100vw; /* Full width on smaller screens */
+        height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    .carousel-title h1 {
+        font-size: 2em; /* Adjust title font size for smaller screens */
+    }
+
+    .carousel-item img {
+        width: 90%; /* Increase width for better fit on smaller screens */
+        max-height: 60%; /* Adjust max-height */
+    }
+
+    .carousel-caption {
+        width: 90%; /* Adjust width for smaller screens */
+        padding: 3px; /* Reduce padding */
+    }
+
+    .carousel-caption label {
+        font-size: 1rem; /* Further reduce font size */
+    }
+
+    .carousel-caption p {
+        font-size: 0.8rem; /* Further reduce font size */
+    }
+
+    .signup-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .signup-container input, .signup-container select, .signup-container button {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .product-detail-container {
+        flex-direction: column;   /* Stack images and details vertically on small screens */
+    }
+
+    .product-info {
+        max-width: 100%;          /* Allow details to take full width */
+        padding: 10px;
+    }
+
+    .product-image {
+        max-width: 100%;          /* Allow images to take full width */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .explore-btn, .category-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .search-item {
+        width: 100%;
+    }
+
+    .search-bar-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #search-bar, #filter-options, #search-btn {
+        width: 100%;
+    }
+}

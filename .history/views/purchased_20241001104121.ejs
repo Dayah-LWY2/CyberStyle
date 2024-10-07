@@ -1,0 +1,19 @@
+<h1>Purchased Products</h1>
+<% if (purchases.length > 0) { %>
+  <ul>
+    <% purchases.forEach(purchase => { %>
+      <li id="product-<%= purchase.productCode %>">
+        Product Code: <%= purchase.productCode %> - Quantity: <%= purchase.quantity %> - Purchased on: <%= new Date(purchase.date).toLocaleDateString() %>
+        <% if (purchase.status === 'purchased') { %>
+          <button onclick="receiveProduct('<%= purchase.productCode %>', '<%= purchase.date %>')">Receive Now</button>
+        <% } else if (purchase.status === 'delivered') { %>
+          <a href="/product/<%= purchase.productCode %>" class="rate-now-btn">Rate Now</a>
+        <% } %>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No purchased products found.</p>
+<% } %>
+
+<script src="/js/script.js"></script>

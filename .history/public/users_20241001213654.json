@@ -1,0 +1,47 @@
+[
+  {
+    "username": "dayah",
+    "email": "kenapasayasukaawakhmm@gmail.com",
+    "password": "251105dayah.",
+    "phone": "0123456789",
+    "gender": "female",
+    "dob": "2024-09-10",
+    "purchased": [
+      {
+        "productCode": "8",
+        "quantity": 2,
+        "date": "2024-09-30T15:22:20.791Z",
+        "status": "delivered"
+      },
+      {
+        "productCode": "2",
+        "quantity": 3,
+        "date": "2024-10-01T04:15:02.465Z",
+        "status": "delivered"
+      },
+      {
+        "productCode": "2",
+        "quantity": 1,
+        "date": "2024-10-01T04:20:24.558Z",
+        "status": "delivered"
+      },
+      "[object Object]1",
+      {
+        "productCode": "7",
+        "quantity": 1,
+        "date": "2024-10-01T07:15:02.118Z",
+        "status": "delivered"
+      },
+      {
+        "productCode": "7",
+        "quantity": 1,
+        "date": "2024-10-01T07:58:00.425Z",
+        "status": "delivered"
+      },
+      2
+    ],
+    "cart": [],
+    "address": "s",
+    "rewardsPoints": 1855
+  }
+]

@@ -1,0 +1,16 @@
+<h2>Purchased Items</h2>
+<ul class="purchased-list">
+    <% purchasedItems.forEach(item => { %>
+        <li>
+            <h3><%= item.name %> (Product Code: <%= item.code %>)</h3>
+            <a href="/product/<%= item.code %>">View Product</a>
+
+            <% if (deliveredProducts.includes(item.code)) { %>
+                <p class="delivered-text">The product has been delivered</p>
+                <button onclick="window.location.href='/product/<%= item.code %>'">Review</button>
+            <% } else { %>
+                <button id="receive-btn-<%= item.code %}" data-product="<%= item.code %>" class="receive-btn">Receive Order</button>
+            <% } %>
+        </li>
+    <% }) %>
+</ul>

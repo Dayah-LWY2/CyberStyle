@@ -1,0 +1,49 @@
+<h1>Purchased Products</h1>
+<% if (purchases.length > 0) { %>
+  <ul class="purchase-list">
+    <% purchases.forEach(purchase => { %>
+      <% const product = products.find(p => p.code === purchase.productCode); %>
+      <li class="purchase-item" id="product-<%= purchase.productCode %>">
+        
+        <!-- Product Image -->
+        <div class="product-container">
+          <img src="<%= product.images[0] %>" alt="<%= product.name %>" class="product-image">
+        </div>
+
+        <!-- Product Information -->
+        <div class="product-info">
+          <div class="product-title">
+            <%= product.name %>
+            <span class="product-quantity">x<%= purchase.quantity %></span>
+          </div>
+
+          <!-- Product Price and Total -->
+          <div class="product-pricing">
+            RM<%= product.price.toFixed(2) %>
+            <div>Total <%= purchase.quantity %> item: RM<%= (product.price * purchase.quantity).toFixed(2) %></div>
+          </div>
+
+          <!-- Delivery Date -->
+          <div class="delivery-status">
+            Delivered on <%= new Date(purchase.dateDelivered).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+          </div>
+          
+          <!-- Action Button -->
+          <div class="product-action">
+            <% if (purchase.status === 'purchased') { %>
+              <button class="receive-btn" onclick="receiveProduct('<%= purchase.productCode %>', '<%= purchase.date %>')">Receive Now</button>
+            <% } else if (purchase.status === 'delivered' && !purchase.hasReviewed) { %>
+              <a href="/product/<%= purchase.productCode %>" class="rate-now-btn">Rate Now</a>
+            <% } else if (purchase.hasReviewed) { %>
+              <button class="already-rated-btn" disabled>Already Rated</button>
+            <% } %>
+          </div>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No purchased products found.</p>
+<% } %>
+
+<script src="/js/script.js"></script>

@@ -1,0 +1,31 @@
+<h1>Purchased Products</h1>
+
+<% if (delivered.length > 0) { %>
+  <ul>
+    <% delivered.forEach(purchase => { %>
+      <li id="delivered-product-<%= purchase.productCode %>">
+        Product Code: <%= purchase.productCode %> - Quantity: <%= purchase.quantity %> - Delivered on: <%= new Date(purchase.date).toLocaleDateString() %>
+
+        <% 
+        // Find the product in products array
+        const product = products.find(p => p.code === purchase.productCode); 
+        
+        // Check if the user has already reviewed the product
+        const hasReviewed = product.reviews.some(review => review.username === username);
+        %>
+
+        <% if (!hasReviewed) { %>
+          <!-- Show "Rate Now" button if not reviewed -->
+          <a href="/product/<%= purchase.productCode %>" class="rate-now-btn">Rate Now</a>
+        <% } else { %>
+          <!-- Show rating if already reviewed -->
+          <span>Rated: <%= product.reviews.find(r => r.username === username).rating %> stars</span>
+        <% } %>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No purchased products yet.</p>
+<% } %>
+
+<script src="/js/script.js"></script>
