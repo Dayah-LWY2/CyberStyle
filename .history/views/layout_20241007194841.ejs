@@ -94,19 +94,19 @@
                         <li><a href="/kids">Kids</a></li>
                     </ul>
                 </li>
-                <li><a href="/cart">🛒</a></li>
                 <li class="submenu">
-                    <a href="/profile">Profile</a>
+                    <a href="/cart">🛒</a>
                     <ul class="dropdown">
-                        <li><a href="/purchased">Order</a></li>
-                        <li><% if (username) { %>
-                            <a href="/logout">Sign Out</a>
-                        <% } else { %>
-                            <a href="/login">Log In</a>
-                        </li><% } %>
+                        <li><a href="/purchased">Purchased</a></li>
+                        <li><a href="/profile">profile</a></li>
                     </ul>
                 </li>
                 <li><a href="/about">About</a></li>
+                <li><% if (username) { %>
+                    <a href="/logout">Sign Out</a>
+                <% } else { %>
+                    <a href="/login">Log In</a>
+                </li><% } %>
             </ul>
         </nav>
 

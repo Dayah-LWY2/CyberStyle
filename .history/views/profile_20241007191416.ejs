@@ -1,0 +1,30 @@
+<div class="profile-container">
+    <h1>User Profile</h1>
+
+    <div class="profile-info">
+      <label for="username">Username:</label>
+      <input type="text" id="username" value="<%= user.username %>" disabled>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" value="<%= user.email %>" disabled>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" value="<%= user.phone %>" disabled>
+
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" value="<%= user.gender %>" disabled>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" value="<%= user.dob %>" disabled>
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" value="<%= user.address %>" disabled>
+    </div>
+
+    <div class="button-container">
+      <button id="edit-btn" class="edit-btn">Edit</button>
+      <button id="save-btn" class="save-btn hidden">Save</button>
+    </div>
+</div>
+
+<script src="/js/script.js"></script>

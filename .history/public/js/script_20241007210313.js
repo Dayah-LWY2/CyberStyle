@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let carouselIndex = 0;
     const totalCarouselItems = carouselItems.length;
 
-    // Carousel functionality
     if (totalCarouselItems > 0) {
+        // Set the width of .carousel-inner to accommodate all slides
         carousel.style.width = `${100 * totalCarouselItems}%`;
 
         function slideToNext() {
@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
             carousel.style.transform = `translateX(-${carouselIndex * 100}%)`;
         }
 
+        // Change slide every 3 seconds
         setInterval(slideToNext, 3000);
     } else {
         console.error("No carousel items found");
@@ -64,12 +65,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const mainImage = document.getElementById("main-product-image");
 
     if (thumbnails.length > 0 && mainImage) {
+        // Function to change the main image when a thumbnail is clicked
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener("click", function() {
                 mainImage.src = this.src;
             });
         });
 
+        // Automatically slide through the images
         let imageIndex = 0;
         const totalImages = thumbnails.length;
 
@@ -79,13 +82,14 @@ document.addEventListener("DOMContentLoaded", function() {
             mainImage.src = thumbnails[imageIndex].src;
         }
 
+        // Change image every 3 seconds
         setInterval(updateMainImage, 3000);
     } else {
         console.error("Thumbnails or main image not found");
     }
 
-    // FAQ section functionality
     const faqQuestions = document.querySelectorAll('.faq-question');
+
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
@@ -117,9 +121,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Search bar functionality
     const searchBar = document.getElementById('search-bar');
     const filterOptions = document.getElementById('filter-options');
+    const searchButton = document.getElementById('search-btn');
     const suggestionBox = document.getElementById('suggestion-box');
 
     // Function to fetch autocomplete suggestions
@@ -167,152 +171,137 @@ document.addEventListener("DOMContentLoaded", function() {
         fetchSuggestions(query);
     });
 
-    // Hide suggestions when clicking outside
+    // Event listener to hide suggestions when clicking outside
     document.addEventListener('click', function(event) {
         if (!suggestionBox.contains(event.target) && event.target !== searchBar) {
             suggestionBox.style.display = 'none';
         }
     });
 
-    // Handle form submission via Enter key
+    // Optional: Handle form submission via Enter key
     const searchForm = document.getElementById('search-form');
     searchForm.addEventListener('submit', function(event) {
+        // Ensure suggestions are hidden on form submission
         suggestionBox.style.display = 'none';
     });
 
-    // Stock functionality
-    try {
-        var stockDataElement = document.getElementById('stock-data');
-        if (stockDataElement) {
-            var stockData = JSON.parse(stockDataElement.value);
-            var sizeSelect = document.getElementById('size-select');
-            var stockDisplay = document.getElementById('stock-display');
-            var quantityInput = document.getElementById('quantity');
-            var increaseBtn = document.getElementById('increaseQty');
-            var decreaseBtn = document.getElementById('decreaseQty');
-            var addToCartBtn = document.getElementById('add-to-cart-btn');
-            var buyNowBtn = document.getElementById('buy-now-btn');
-
-            var selectedSizeStock = 0;
-
-            // Handle size selection
-            sizeSelect.addEventListener('change', function () {
-                var selectedSize = sizeSelect.value;
-
-                if (stockData[selectedSize]) {
-                    selectedSizeStock = stockData[selectedSize];
-                    stockDisplay.textContent = 'Stock Available: ' + selectedSizeStock;
-                    increaseBtn.disabled = false;
-                    decreaseBtn.disabled = true; // Initial quantity is 1
-                    quantityInput.value = 1;
-                    addToCartBtn.disabled = false;
-                    buyNowBtn.disabled = false;
-                } else {
-                    stockDisplay.textContent = 'Please select a valid size';
-                    increaseBtn.disabled = true;
-                    decreaseBtn.disabled = true;
-                    addToCartBtn.disabled = true;
-                    buyNowBtn.disabled = true;
-                }
-            });
-
-            increaseBtn.addEventListener('click', function () {
-                var currentQuantity = parseInt(quantityInput.value);
-                
-                if (currentQuantity < selectedSizeStock) {
-                    quantityInput.value = currentQuantity + 1;
-                    decreaseBtn.disabled = false; // Enable decrease button
-                }
-                
-                if (parseInt(quantityInput.value) === selectedSizeStock){
-                    increaseBtn.disabled = true; // Disable increase button when max stock is reached
-                }
-            });
-
-            decreaseBtn.addEventListener('click', function() {
-                var currentQuantity = parseInt(quantityInput.value);
-
-                if(currentQuantity > 1) {
-                    quantityInput.value = currentQuantity - 1;
-                    increaseBtn.disabled = false; // Enable increase button
-                }
-
-                if(parseInt(quantityInput.value) === 1) {
-                    decreaseBtn.disabled = true; // Disable decrease button when quantity is 1
-                }
-            });
-        }
-    } catch (error) {
-        console.error("Error in stock functionality:", error);
-    }
-
-    // Profile edit functionality
-    const usernameInput = document.getElementById('username');
-    const emailInput = document.getElementById('email');
-    const phoneInput = document.getElementById('phone');
-    const genderInput = document.getElementById('gender');
-    const dobInput = document.getElementById('dob');
-    const addressInput = document.getElementById('address');
-    const passwordInput = document.getElementById('password');
-
-    const editBtn = document.getElementById('edit-btn');
-    const saveBtn = document.getElementById('save-btn');
-    const inputs = [usernameInput, emailInput, phoneInput, genderInput, dobInput, addressInput, passwordInput];
-
-    // Check if the elements are correctly selected
-    console.log('Edit button:', editBtn);
-    console.log('Save button:', saveBtn);
-    console.log('Inputs:', inputs);
-
-    // Enable editing when Edit button is clicked
-    editBtn.addEventListener('click', () => {
-        console.log("Edit button clicked");
-        inputs.forEach(input => {
-            input.disabled = false;  // Enable each input
-            console.log(input.id + ' is enabled');
-        });
-
-        editBtn.classList.add('profile-hidden');  // Hide the Edit button
-        saveBtn.classList.remove('profile-hidden');  // Show the Save button
-    });
-
-    // Save functionality
-    saveBtn.addEventListener('click', () => {
-        const updatedData = {
-            username: usernameInput.value,
-            email: emailInput.value,
-            phone: phoneInput.value,
-            gender: genderInput.value,
-            dob: dobInput.value,
-            address: addressInput.value,
-            password: passwordInput.value
-        };
-
-        console.log("Updated Data:", updatedData);
-
-        fetch('/profile', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updatedData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                inputs.forEach(input => input.disabled = true);  // Disable inputs again after saving
-                saveBtn.classList.add('profile-hidden');  // Hide Save button
-                editBtn.classList.remove('profile-hidden');  // Show Edit button
-                alert('Profile updated successfully!');
-            } else {
-                alert('Error updating profile.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred while saving your profile.');
-        });
-    });
+     // Initialize stock variables
+     var stockData = JSON.parse(document.getElementById('stock-data').value);
+     var sizeSelect = document.getElementById('size-select');
+     var stockDisplay = document.getElementById('stock-display');
+     var quantityInput = document.getElementById('quantity');
+     var increaseBtn = document.getElementById('increaseQty');
+     var decreaseBtn = document.getElementById('decreaseQty');
+     var addToCartBtn = document.getElementById('add-to-cart-btn');
+     var buyNowBtn = document.getElementById('buy-now-btn');
+     var selectedSizeStock = 0;
+ 
+     // Stock Management Functionality
+     sizeSelect.addEventListener('change', function () {
+         var selectedSize = sizeSelect.value;
+ 
+         if (stockData[selectedSize]) {
+             selectedSizeStock = stockData[selectedSize];
+             stockDisplay.textContent = 'Stock Available: ' + selectedSizeStock;
+             quantityInput.value = 1;
+             increaseBtn.disabled = false;
+             decreaseBtn.disabled = true;
+             addToCartBtn.disabled = false;
+             buyNowBtn.disabled = false;
+         } else {
+             stockDisplay.textContent = 'Please select a valid size';
+             increaseBtn.disabled = true;
+             decreaseBtn.disabled = true;
+             addToCartBtn.disabled = true; // Corrected line
+             buyNowBtn.disabled = true; // Corrected line
+         }
+     });
+ 
+     increaseBtn.addEventListener('click', function () {
+         var currentQuantity = parseInt(quantityInput.value);
+ 
+         if (currentQuantity < selectedSizeStock) {
+             quantityInput.value = currentQuantity + 1;
+             decreaseBtn.disabled = false; // Enable decrease button
+         }
+ 
+         if (parseInt(quantityInput.value) === selectedSizeStock) {
+             increaseBtn.disabled = true; // Disable increase button when max stock is reached
+         }
+     });
+ 
+     decreaseBtn.addEventListener('click', function() {
+         var currentQuantity = parseInt(quantityInput.value);
+ 
+         if(currentQuantity > 1) {
+             quantityInput.value = currentQuantity - 1;
+             increaseBtn.disabled = false; // Enable increase button
+         }
+ 
+         if(parseInt(quantityInput.value) === 1) {
+             decreaseBtn.disabled = true; // Disable decrease button when quantity is 1
+         }
+     });
+ 
+     // Profile Edit Functionality
+     const inputs = document.querySelectorAll('#profile-form input'); // Assuming all inputs are in a form with id 'profile-form'
+     const editBtn = document.getElementById('edit-btn');
+     const saveBtn = document.getElementById('save-btn');
+ 
+     // Enable editing when Edit button is clicked
+     editBtn.addEventListener('click', () => {
+         inputs.forEach(input => {
+             input.disabled = false;  // Enable each input
+         });
+ 
+         editBtn.classList.add('profile-hidden');  // Hide the Edit button
+         saveBtn.classList.remove('profile-hidden');  // Show the Save button
+         
+         // Disable stock functionality when editing
+         increaseBtn.disabled = true;
+         decreaseBtn.disabled = true;
+         addToCartBtn.disabled = true;
+         buyNowBtn.disabled = true;
+     });
+ 
+     // Save functionality
+     saveBtn.addEventListener('click', () => {
+         const updatedData = {};
+         inputs.forEach(input => {
+             updatedData[input.id] = input.value; // Use input ID to set updated data
+             input.disabled = true; // Disable inputs again after saving
+         });
+ 
+         // Send the updated data to the server via AJAX (fetch)
+         fetch('/profile', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json',
+             },
+             body: JSON.stringify(updatedData),
+         })
+         .then(response => response.json())
+         .then(data => {
+             if (data.success) {
+                 saveBtn.classList.add('profile-hidden');  // Hide Save button
+                 editBtn.classList.remove('profile-hidden');  // Show Edit button
+ 
+                 // Re-enable stock buttons after saving
+                 increaseBtn.disabled = false;
+                 decreaseBtn.disabled = false;
+                 addToCartBtn.disabled = false;
+                 buyNowBtn.disabled = false;
+ 
+                 alert('Profile updated successfully!');
+             } else {
+                 alert('Error updating profile.');
+             }
+         })
+         .catch(error => {
+             console.error('Error:', error);
+             alert('An error occurred while saving your profile.');
+         });
+     });
 });
 
 

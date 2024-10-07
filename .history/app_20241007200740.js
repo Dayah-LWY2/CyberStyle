@@ -152,37 +152,24 @@ app.get('/profile', ensureLoggedInAndExists, async (req, res) => {
     }
   });  
 
-  app.post('/profile', async (req, res) => {
+app.post('/profile', async (req, res) => {
     try {
-      const updatedUserData = req.body;  // The updated user data from the client
-  
-      // Read the current users data from the users.json file
-      const users = await readUsersFromFile();
-      
-      // Find the current user (e.g., by username)
-      const userIndex = users.findIndex(user => user.username === updatedUserData.username);
-      
-      if (userIndex !== -1) {
-        // Update the user data
-        users[userIndex] = {
-            ...users[userIndex],  // Spread existing user data
-            ...updatedUserData,   // Overwrite only the fields that are updated
-        };
-        
-        // Write the updated users data back to the users.json file
-        await writeUsersToFile(users);
-        
-        // Respond with success
+        const updatedUser = req.body; // Get the updated data from the request body
+        const users = await readUsersFromFile(); // Read the current users from the file
+        const user = users.find(u => u.username === req.session.username);
+
+        user = updatedUser;
+
+        // Write the updated users back to the file
+        await writeUsersToFile(user);
+
+        // Send success response
         res.json({ success: true });
-      } else {
-        // User not found
-        res.status(404).json({ success: false, message: 'User not found' });
-      }
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, message: 'Server error' });
+    } catch (err) {
+        console.error('Error saving profile:', err);
+        res.json({ success: false });
     }
-  });  
+});
 
 app.get('/cart', ensureLoggedInAndExists, async (req, res) => {
     // Fetch users and find the logged-in user

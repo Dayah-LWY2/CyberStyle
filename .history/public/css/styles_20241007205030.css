@@ -1257,7 +1257,7 @@ button[type="submit"]:hover {
   
   .profile-info label {
     font-size: 14px;
-    color: black; /* Mid-grey color */
+    color: #666; /* Mid-grey color */
     font-weight: 600;
   }
   

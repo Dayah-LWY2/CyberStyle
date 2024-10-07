@@ -92,14 +92,8 @@
         "status": "purchased"
       }
     ],
-    "cart": [
-      {
-        "productCode": "2",
-        "size": "12 Month",
-        "quantity": 1
-      }
-    ],
-    "address": "ss",
+    "cart": [],
+    "address": "s",
     "rewardsPoints": 4180
   }
 ]

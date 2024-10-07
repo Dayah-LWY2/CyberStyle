@@ -164,10 +164,7 @@ app.get('/profile', ensureLoggedInAndExists, async (req, res) => {
       
       if (userIndex !== -1) {
         // Update the user data
-        users[userIndex] = {
-            ...users[userIndex],  // Spread existing user data
-            ...updatedUserData,   // Overwrite only the fields that are updated
-        };
+        users[userIndex] = updatedUserData;
         
         // Write the updated users data back to the users.json file
         await writeUsersToFile(users);

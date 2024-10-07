@@ -1257,7 +1257,7 @@ button[type="submit"]:hover {
   
   .profile-info label {
     font-size: 14px;
-    color: black; /* Mid-grey color */
+    color: #666; /* Mid-grey color */
     font-weight: 600;
   }
   
@@ -1297,12 +1297,20 @@ button[type="submit"]:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    color: white;
-    background-color: black;
+  }
+  
+  .profile-edit-btn {
+    background-color: #555; /* Medium grey */
+    color: #fff;
+  }
+  
+  .profile-save-btn {
+    background-color: #333; /* Dark grey */
+    color: #fff;
   }
   
   .profile-button:hover {
-    background-color: grey; /* Darker hover effect */
+    background-color: #000; /* Darker hover effect */
   }
   
   .profile-button:active {
