@@ -776,11 +776,9 @@ footer {
 
 .general {
     text-align: center;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+    margin: auto; /* Center horizontally */
     font-size: large;
-    margin-top: 50px;
+    margin-bottom: 80px;
 }
 
 .general h1, .general h2, .general h3 {
