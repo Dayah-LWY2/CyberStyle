@@ -11,12 +11,7 @@
       <input type="text" id="phone" value="<%= user.phone %>" disabled>
 
       <label for="gender">Gender:</label>
-      <select id="gender" name="gender" disabled>
-      <option value="" disabled>Select Gender</option>
-      <option value="male" <%= user.gender === 'male' ? 'selected' : '' %>>Male</option>
-      <option value="female" <%= user.gender === 'female' ? 'selected' : '' %>>Female</option>
-      <option value="other" <%= user.gender === 'other' ? 'selected' : '' %>>Other</option>
-      </select>
+      <input type="text" id="gender" value="<%= user.gender %>" disabled>
 
       <label for="dob">Date of Birth:</label>
       <input type="date" id="dob" value="<%= user.dob %>" disabled>

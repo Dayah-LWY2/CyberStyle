@@ -107,12 +107,12 @@
     "cart": [
       {
         "productCode": "2",
-        "size": "12 Month",
-        "quantity": 1
+        "size": "2 Year",
+        "quantity": 2
       },
       {
-        "productCode": "2",
-        "size": "6 Month",
+        "productCode": "5",
+        "size": "S",
         "quantity": 1
       }
     ],

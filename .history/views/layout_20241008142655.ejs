@@ -68,12 +68,20 @@
                 </ul>
             </div>
             <a href="/profile">Profile</a>
-            <a href="/purchased">Order</a>
-                <% if (username) { %>
-                    <a href="/logout">Sign Out</a>
-                <% } else { %>
-                    <a href="/login">Log In</a>
-                <% } %>
+            <div class="submenu">
+                <a href="#">User</a>
+                <ul class="dropdown">
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/purchased">Order</a></li>
+                    <li>
+                        <% if (username) { %>
+                            <a href="/logout">Sign Out</a>
+                        <% } else { %>
+                            <a href="/login">Log In</a>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>
             <a href="/cart">🛒</a>
         </nav>
 
