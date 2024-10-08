@@ -66,12 +66,10 @@ const writeUsersToFile = async (users) => {
     await fs.writeFile(path.join(__dirname, 'public', 'users.json'), JSON.stringify(users, null, 2));
 };
 
-// Write products data to users.json
 const writeProductsToFile = async (users) => {
     await fs.writeFile(path.join(__dirname, 'public', 'products.json'), JSON.stringify(users, null, 2));
 };
 
-// Session Middleware
 app.use((req, res, next) => {
     res.locals.username = req.session.username;
     req.session.cart = req.session.cart || [];
@@ -97,6 +95,7 @@ const ensureLoggedInAndExists = async (req, res, next) => {
     next(); // Proceed if user exists
 };
 
+// Routes
 app.get('/', async (req, res) => {
     if (products.length === 0) await loadProducts();
     res.render('index', { title: 'Home', products, filter: null });
@@ -214,7 +213,7 @@ app.get('/cart', ensureLoggedInAndExists, async (req, res) => {
     res.render('cart', { title: 'Cart', cart: detailedCart,  rewardsPoints: user.rewardsPoints || 0, filter: null });
 });
 
-app.get('/payment', ensureLoggedInAndExists, async (req, res) => {
+app.get('/payment', async (req, res) => {
     const username = req.session.username; 
     const users = await readUsersFromFile();
     const user = users.find(u => u.username === username);
@@ -225,7 +224,7 @@ app.get('/payment', ensureLoggedInAndExists, async (req, res) => {
     res.render('payment', { title: 'Payment Details', cart, address, rewardsPoints: user.rewardsPoints || 0, filter: null });
 });
 
-app.get('/checkout', ensureLoggedInAndExists, async (req, res) => {
+app.get('/checkout', async (req, res) => {
     const username = req.session.username;  
     const users = await readUsersFromFile();
     const user = users.find(u => u.username === username);
@@ -236,7 +235,7 @@ app.get('/checkout', ensureLoggedInAndExists, async (req, res) => {
     res.render('checkout', { title: 'Checkout', cart, address, rewardsPoints: user.rewardsPoints || 0, filter: null });
 });
 
-app.get('/confirmation', ensureLoggedInAndExists, async (req, res) => {
+app.get('/confirmation', async (req, res) => {
     const username = req.session.username;
 
     // Read users from the JSON file
@@ -459,6 +458,7 @@ app.post('/product/:code/review', ensureLoggedInAndExists, async (req, res) => {
     }
 });
 
+// Existing routes for adding to cart, buying now, and processing payments
 app.post('/add-to-cart', ensureLoggedInAndExists, async (req, res) => {
     const { productCode, size, quantity } = req.body;
     const product = products.find(p => p.code === productCode);
@@ -749,7 +749,7 @@ app.post('/process-payment', ensureLoggedInAndExists, async (req, res) => {
         })
 
         // Prepare the order details for the confirmation email
-        const orderDetails = `Product Code: ${mostRecentProduct.productCode}, \nQuantity: ${mostRecentProduct.quantity}, \nTotal Spent: RM${totalSpent}, \nAddress: ${address}`;
+        const orderDetails = `Product: ${mostRecentProduct.productCode}, Quantity: ${mostRecentProduct.quantity}, Total Spent: RM${totalSpent}, Address: ${address}`;
 
         // Send confirmation email to the user after successful payment
         sendConfirmationEmail(user.email, orderDetails);

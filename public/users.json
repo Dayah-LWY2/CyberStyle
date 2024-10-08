@@ -90,6 +90,18 @@
         "quantity": 1,
         "date": "2024-10-07T08:32:14.973Z",
         "status": "purchased"
+      },
+      {
+        "productCode": "2",
+        "quantity": 1,
+        "date": "2024-10-08T03:13:31.490Z",
+        "status": "purchased"
+      },
+      {
+        "productCode": "2",
+        "quantity": 1,
+        "date": "2024-10-08T03:41:45.048Z",
+        "status": "purchased"
       }
     ],
     "cart": [
@@ -97,9 +109,14 @@
         "productCode": "2",
         "size": "12 Month",
         "quantity": 1
+      },
+      {
+        "productCode": "2",
+        "size": "6 Month",
+        "quantity": 1
       }
     ],
     "address": "ss",
-    "rewardsPoints": 4180
+    "rewardsPoints": 4330
   }
 ]

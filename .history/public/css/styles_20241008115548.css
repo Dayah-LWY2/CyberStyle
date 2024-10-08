@@ -781,6 +781,7 @@ footer {
     top: 50%; /* Position from the top */
     left: 50%; /* Position from the left */
     transform: translate(-50%, -50%); /* Center the element */
+    padding: 20px;
     font-size: large;
 }
 
@@ -1118,90 +1119,90 @@ button[type="submit"]:hover {
     margin: 0;
   }
   
-/* Each item in the purchase list */
-.purchase-item {
+  /* Each item in the purchase list */
+  .purchase-item {
     display: flex;
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
-}
+  }
   
   /* Image container */
-.purchase-container {
+  .purchase-container {
     width: 300px; 
     height: 150px; 
     margin-right: 15px;
     overflow: hidden;
     border-radius: 8px;
-}
+  }
   
   /* Product image styling */
-.purchase-image {
+  .purchase-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-}
+  }
   
   /* Product information styling */
-.purchase-info {
+  .purchase-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+  }
   
   /* Title and quantity */
-.purchase-title {
+  .purchase-title {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
-}
+  }
   
-.purchase-quantity {
+  .purchase-quantity {
     font-size: 14px;
     color: #888;
     margin-left: 10px;
-}
+  }
   
   /* Pricing and total */
-.purchase-pricing {
+  .purchase-pricing {
     font-size: 14px;
     margin-bottom: 5px;
-}
+  }
   
   /* Delivery status */
-.delivery-status {
+  .delivery-status {
     font-size: 12px;
     color: green;
     margin-bottom: 10px;
-}
+  }
   
   /* Action buttons */
-.receive-btn, .rate-now-btn, .already-rated-btn {
+  .receive-btn, .rate-now-btn, .already-rated-btn {
     padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
-}
+  }
   
-.receive-btn {
+  .receive-btn {
     background-color: black;
     border: none;
     color: white;
-}
+  }
   
-.rate-now-btn {
+  .rate-now-btn {
     background-color: grey;
     color: white;
     text-decoration: none;
     padding: 8px 12px;
-}
+  }
   
-.already-rated-btn {
+  .already-rated-btn {
     background-color: #95a5a6;
     color: white;
     border: none;
-}  
+  }  
 
   .rewards-container {
     display: flex;
@@ -1242,29 +1243,29 @@ button[type="submit"]:hover {
     gap: 20px;
     margin: 0 auto;
     margin-top: 40px;
-}
+  }
   
-.profile-heading {
+  .profile-heading {
     text-align: center;
     font-size: 24px;
     color: #000; /* Black heading */
     margin-bottom: 20px;
-}
+  }
   
-.profile-info {
+  .profile-info {
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
+  }
   
-.profile-info label {
+  .profile-info label {
     font-size: 14px;
     color: black; /* Mid-grey color */
     font-weight: 600;
-}
+  }
   
-.profile-info input, 
-.profile-info textarea {
+  .profile-info input, 
+  .profile-info textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd; /* Light grey border */
@@ -1272,26 +1273,26 @@ button[type="submit"]:hover {
     background-color: #f9f9f9; /* Very light grey background */
     color: #333; /* Dark grey text */
     transition: border-color 0.3s ease;
-}
+  }
   
-.profile-info input:disabled, 
-.profile-info textarea:disabled {
+  .profile-info input:disabled, 
+  .profile-info textarea:disabled {
     background-color: #e0e0e0; /* Darker grey for disabled inputs */
     color: #888; /* Muted text for disabled inputs */
-}
+  }
   
-.profile-info input:focus, 
-.profile-info textarea:focus {
+  .profile-info input:focus, 
+  .profile-info textarea:focus {
     outline: none;
     border-color: #333; /* Dark grey border on focus */
-}
+  }
   
-.profile-buttons {
+  .profile-buttons {
     display: flex;
     justify-content: space-between;
-}
+  }
   
-.profile-button {
+  .profile-button {
     width: 48%;
     padding: 10px;
     font-size: 16px;
@@ -1301,19 +1302,19 @@ button[type="submit"]:hover {
     transition: background-color 0.3s, transform 0.2s;
     color: white;
     background-color: black;
-}
+  }
   
-.profile-button:hover {
+  .profile-button:hover {
     background-color: grey; /* Darker hover effect */
-}
+  }
   
-.profile-button:active {
+  .profile-button:active {
     transform: scale(0.97); /* Slight press effect */
-}
+  }
   
-.profile-hidden {
+  .profile-hidden {
     display: none;
-}
+  }
   
 /* Animation for the checkmark */
 @keyframes pop-in {
@@ -1485,14 +1486,14 @@ button[type="submit"]:hover {
 
     .profile-container {
         width: 90%;
-    }
+      }
     
-    .profile-buttons {
+      .profile-buttons {
         flex-direction: column;
         gap: 10px;
-    }
+      }
     
-    .profile-button {
+      .profile-button {
         width: 100%;
-    }
+      }
 }

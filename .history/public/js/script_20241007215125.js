@@ -1,9 +1,14 @@
-// DOM Elements for the sidebar and menu
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const sidebar = document.querySelector('.sidebar');
 const closeBtn = document.querySelector('.sidebar .close-btn');
-const submenuLink = document.querySelector('.sidebar .submenu > a');
-const submenu = document.querySelector('.sidebar .submenu');
+
+// Select the submenu links
+const shopAllLink = document.querySelector('.sidebar .submenu:nth-child(1) > a'); // Shop All
+const userLink = document.querySelector('.sidebar .submenu:nth-child(2) > a'); // User
+
+// Select the dropdown menus
+const shopAllSubmenu = document.querySelector('.sidebar .submenu:nth-child(1) .dropdown'); // Shop All dropdown
+const userSubmenu = document.querySelector('.sidebar .submenu:nth-child(2) .dropdown'); // User dropdown
 
 // Open the sidebar when the hamburger menu is clicked
 hamburgerMenu.addEventListener('click', () => {
@@ -16,9 +21,17 @@ closeBtn.addEventListener('click', () => {
 });
 
 // Toggle the dropdown menu when "Shop All" is clicked
-submenuLink.addEventListener('click', (event) => {
+shopAllLink.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent default action of anchor tag
-    submenu.classList.toggle('active');
+    event.stopPropagation(); // Prevent click from bubbling up
+    shopAllSubmenu.classList.toggle('active'); // Toggle Shop All dropdown
+});
+
+// Toggle the dropdown menu when "User" is clicked
+userLink.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default action of anchor tag
+    event.stopPropagation(); // Prevent click from bubbling up
+    userSubmenu.classList.toggle('active'); // Toggle User dropdown
 });
 
 // Close the sidebar when clicking outside of it
@@ -27,6 +40,7 @@ window.addEventListener('click', (event) => {
         sidebar.classList.remove('active');
     }
 });
+
 
 // Form submission handling
 document.getElementById('product-form')?.addEventListener('submit', function(event) {

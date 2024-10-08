@@ -1485,14 +1485,14 @@ button[type="submit"]:hover {
 
     .profile-container {
         width: 90%;
-    }
+      }
     
-    .profile-buttons {
+      .profile-buttons {
         flex-direction: column;
         gap: 10px;
-    }
+      }
     
-    .profile-button {
+      .profile-button {
         width: 100%;
-    }
+      }
 }

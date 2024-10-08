@@ -28,6 +28,7 @@ window.addEventListener('click', (event) => {
     }
 });
 
+
 // Form submission handling
 document.getElementById('product-form')?.addEventListener('submit', function(event) {
     var targetButton = event.submitter;

@@ -28,6 +28,7 @@ window.addEventListener('click', (event) => {
     }
 });
 
+
 // Form submission handling
 document.getElementById('product-form')?.addEventListener('submit', function(event) {
     var targetButton = event.submitter;
@@ -458,3 +459,19 @@ async function receiveProduct(productCode, purchaseDate) {
         console.error('Error:', error);
     }
 }
+
+const elementsToFade = document.querySelectorAll('body > *'); // Select all direct child elements of the body
+
+const fadeInOnScroll = () => {
+    elementsToFade.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const elementVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if (elementVisible) {
+            element.classList.add('visible'); // Add the visible class to make it appear
+        }
+    });
+};
+
+window.addEventListener('scroll', fadeInOnScroll);
+window.addEventListener('DOMContentLoaded', fadeInOnScroll);

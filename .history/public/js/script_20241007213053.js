@@ -1,3 +1,20 @@
+const elementsToFade = document.querySelectorAll('body > *'); // Select all direct child elements of the body
+
+const fadeInOnScroll = () => {
+    elementsToFade.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const elementVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if (elementVisible) {
+            element.classList.add('visible'); // Add the visible class to make it appear
+            console.log(`Element is visible: ${element.tagName}`); // Debugging line
+        }
+    });
+};
+
+window.addEventListener('scroll', fadeInOnScroll);
+window.addEventListener('DOMContentLoaded', fadeInOnScroll); // Trigger on load for initial visibility
+
 // DOM Elements for the sidebar and menu
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const sidebar = document.querySelector('.sidebar');
@@ -27,6 +44,7 @@ window.addEventListener('click', (event) => {
         sidebar.classList.remove('active');
     }
 });
+
 
 // Form submission handling
 document.getElementById('product-form')?.addEventListener('submit', function(event) {
